@@ -1,0 +1,128 @@
+backend:
+  name: github
+  repo: Alis-rh/alisrh-site
+  branch: main
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "configuracoes"
+    label: "Configurações Globais"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "geral"
+        label: "Cabeçalho e Rodapé"
+        file: "content/configuracoes/geral.json"
+        fields:
+          - { label: "Logo do Site (Upload)", name: "logo", widget: "image", required: false }
+          - { label: "Altura da Logo no Cabeçalho (em pixels)", name: "altura_logo_header", widget: "number", default: 100, value_type: "int", required: false }
+          - { label: "Altura da Logo no Rodapé (em pixels)", name: "altura_logo_footer", widget: "number", default: 60, value_type: "int", required: false }
+          - { label: "WhatsApp de Contato", name: "whatsapp", widget: "string", default: "5531975061698" }
+          - { label: "E-mail de Contato", name: "email", widget: "string", default: "gabriela@alisrh.com.br" }
+          - { label: "Link Instagram", name: "instagram", widget: "string", default: "https://www.instagram.com/soualisrh/" }
+          - { label: "Link TikTok", name: "tiktok", widget: "string", default: "https://www.tiktok.com/@soualisrh" }
+          - { label: "Link LinkedIn", name: "linkedin", widget: "string", default: "https://www.linkedin.com/company/alisrh" }
+          - { label: "Texto do Rodapé", name: "texto_footer", widget: "text", default: "Sua parceira estratégica em gestão de pessoas para organizar e escalar o seu negócio." }
+          - { label: "Tamanho da Fonte do Rodapé (px)", name: "tamanho_fonte_rodape", widget: "number", default: 12, value_type: "int", required: false }
+
+  - name: "paginas"
+    label: "Páginas do Site"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Página Início (Home)"
+        file: "content/paginas/home.json"
+        fields:
+          - { label: "Exibir / Ativar Página no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Título Principal (Hero)", name: "titulo_hero", widget: "string" }
+          - { label: "Subtítulo Hero", name: "subtitulo_hero", widget: "text" }
+          - { label: "Texto do Botão Principal", name: "texto_botao", widget: "string" }
+          - { label: "Link do Botão Principal", name: "link_botao", widget: "string" }
+
+      - name: "origem"
+        label: "Página Origem"
+        file: "content/paginas/origem.json"
+        fields:
+          - { label: "Exibir / Ativar Página no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Título da Página", name: "titulo", widget: "string", default: "Nossa Origem" }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false }
+          - { label: "Conteúdo da História", name: "conteudo", widget: "markdown" }
+
+      - name: "sobre"
+        label: "Página Sobre"
+        file: "content/paginas/sobre.json"
+        fields:
+          - { label: "Exibir / Ativar Página no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Título", name: "titulo", widget: "string", default: "POR QUE A ALIS RH EXISTE" }
+          - { label: "Missão - Título", name: "missao_titulo", widget: "string", default: "MISSÃO" }
+          - { label: "Missão - Texto", name: "missao_texto", widget: "text" }
+          - { label: "Visão - Título", name: "visao_titulo", widget: "string", default: "VISÃO" }
+          - { label: "Visão - Texto", name: "visao_texto", widget: "text" }
+          - { label: "Título dos Valores", name: "valores_titulo", widget: "string", default: "OS 5 PS DA ALIS" }
+          - { label: "Subtítulo dos Valores", name: "valores_subtitulo", widget: "string", default: "Nossos valores, em uma palavra cada" }
+
+      - name: "metodologia"
+        label: "Página Metodologia / Como Agimos"
+        file: "content/paginas/metodologia.json"
+        fields:
+          - { label: "Exibir / Ativar Página no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Título da Seção", name: "titulo", widget: "string", default: "COMO AGIMOS" }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string", default: "Nossa Metodologia de Trabalho" }
+          - { label: "Descrição da Metodologia", name: "descricao", widget: "markdown" }
+          - { label: "Etapas do Processo", name: "etapas", widget: "list", required: false, fields: [
+              { label: "Número / Passo", name: "passo", widget: "string" },
+              { label: "Título da Etapa", name: "titulo", widget: "string" },
+              { label: "Descrição", name: "descricao", widget: "text" }
+            ]}
+
+      - name: "cultura"
+        label: "Página Cultura"
+        file: "content/paginas/cultura.json"
+        fields:
+          - { label: "Exibir / Ativar Página no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Título", name: "titulo", widget: "string", default: "Nossa Cultura" }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false }
+          - { label: "Resumo da Cultura", name: "resumo", widget: "markdown" }
+
+      - name: "planos"
+        label: "Página Planos & Serviços"
+        file: "content/paginas/planos.json"
+        fields:
+          - { label: "Exibir / Ativar Seção no Site", name: "exibir_pagina", widget: "boolean", default: true }
+          - { label: "Tag / Categorizador superior", name: "tag", widget: "string", default: "SOLUÇÕES CORPORATIVAS" }
+          - { label: "Título da Seção", name: "titulo", widget: "string", default: "PLANOS & SERVIÇOS" }
+          - { label: "Subtítulo Explicativo", name: "subtitulo", widget: "text", default: "Soluções estratégicas sob medida para atração, estruturação e retenção de talentos." }
+          - { label: "Lista de Planos / Serviços", name: "lista_planos", widget: "list", fields: [
+              { label: "Nome do Plano", name: "nome", widget: "string" },
+              { label: "Selo de Destaque (ex: Mais Procurado)", name: "badge", widget: "string", required: false },
+              { label: "Descrição Curta", name: "descricao", widget: "text" },
+              { label: "Modelo de Cobrança / Destaque", name: "modelo", widget: "string", required: false },
+              { label: "Itens Inclusos (um por linha)", name: "itens", widget: "list", field: { label: "Item", name: "item", widget: "string" } },
+              { label: "Texto do Botão", name: "texto_botao", widget: "string", default: "Solicitar Avaliação" }
+            ]}
+
+      - name: "vagas"
+        label: "Página Vagas Abertas"
+        file: "content/paginas/vagas.json"
+        fields:
+          - { label: "Exibir / Ativar Página de Vagas no Site", name: "exibir_pagina", widget: "boolean", default: false }
+          - { label: "Título da Página", name: "titulo", widget: "string", default: "Vagas Abertas" }
+          - { label: "Mensagem Quando Desativada / Sem Vagas", name: "mensagem_indisponivel", widget: "text", default: "No momento não temos vagas abertas. Acompanhe nossas redes para novidades!" }
+
+  - name: "vagas_list"
+    label: "Cadastro de Vagas"
+    folder: "content/vagas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título da Vaga", name: "title", widget: "string" }
+      - { label: "Setor / Área", name: "setor", widget: "string" }
+      - { label: "Nível / Senioridade", name: "nivel", widget: "string", required: false }
+      - { label: "Modelo de Trabalho", name: "modelo", widget: "string", required: false }
+      - { label: "Link do Formulário / Sólides", name: "apply_url", widget: "string" }
+      - { label: "Vaga Ativa?", name: "ativa", widget: "boolean", default: true }
