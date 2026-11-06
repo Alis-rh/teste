@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alis RH | Consultoria Estratégica</title>
+  
+  <!-- Favicon Oficial Alis RH -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/6QQLLFGt/Copia-asinho.png">
+  
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'alis-dark': '#091427',
+            'alis-gold': 'rgb(195, 160, 90)',
+            'alis-gold-light': 'rgb(232, 210, 160)',
+            'alis-cream': 'rgb(243, 233, 216)',
+            'alis-gold-deep': 'rgb(139, 108, 42)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background-color: #091427; }
+    .btn-gold {
+      background: linear-gradient(135deg, rgb(195, 160, 90) 0%, rgb(232, 210, 160) 50%, rgb(195, 160, 90) 100%);
+      background-size: 200% 200%;
+      transition: all 0.3s ease;
+      color: rgb(10, 19, 37) !important;
+    }
+    .btn-gold:hover { background-position: 100% 100%; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(195, 160, 90, 0.4); }
+    .input-alis-dark-form { 
+        background: rgba(255, 255, 255, 0.05) !important; 
+        border: 1px solid rgba(195, 160, 90, 0.3) !important; 
+        color: white !important; 
+    }
+    .input-alis-dark-form option { color: #000 !important; background: #fff !important; }
+    /* ===== DESIGN SYSTEM: seções claras (creme/papel) ===== */
+    .sec-light, .sec-paper { color:#0a1325; }
+    .sec-light { background-color: rgb(243,233,216); }
+    .sec-paper { background-color: #fffdf8; }
+    .sec-light [class*="text-white"], .sec-paper [class*="text-white"] { color:#24324d !important; }
+    .sec-light h1, .sec-light h2, .sec-light h3, .sec-paper h2, .sec-paper h3 { color:#0a1325 !important; }
+    .sec-light [class*="text-alis-gold"], .sec-paper [class*="text-alis-gold"] { color: rgb(139,108,42) !important; }
+    .sec-light [class*="bg-white/["] { background:#fffdf8 !important; box-shadow:0 1px 2px rgba(10,19,37,.05),0 8px 24px rgba(10,19,37,.06); }
+    .sec-paper [class*="bg-white/["] { background:rgb(250,246,238) !important; box-shadow:0 1px 2px rgba(10,19,37,.05),0 8px 24px rgba(10,19,37,.06); }
+    .sec-light [class*="border-white"], .sec-paper [class*="border-white"] { border-color: rgba(10,19,37,.09) !important; }
+    .sec-light [class*="bg-alis-gold/10"] { background: rgba(195,160,90,.2) !important; }
+    /* legibilidade em fundos escuros: textos muito apagados ficam mais nítidos */
+    .text-white\/40 { color: rgba(255,255,255,.68) !important; }
+    .text-white\/50 { color: rgba(255,255,255,.74) !important; }
+    .text-white\/60 { color: rgba(255,255,255,.82) !important; }
+    .btn-outline-gold { border:1px solid rgba(195,160,90,.55); color:rgb(232,210,160); transition:all .25s; }
+    .btn-outline-gold:hover { background:rgba(195,160,90,.12); border-color:rgb(195,160,90); color:#fff; }
+    .card-link { transition: transform .25s, box-shadow .25s; }
+    .card-link:hover { transform: translateY(-3px); box-shadow:0 14px 34px rgba(10,19,37,.14) !important; }
+    #clientModal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; padding:16px; background:rgba(5,10,22,.8); backdrop-filter:blur(4px); }
+    #clientModal.open { display:flex; }
+    .custom-checkbox-form { width: 20px; height: 20px; cursor: pointer; accent-color: rgb(195, 160, 90); }
+    .zf-errorMessage { color: #ef4444; font-size: 0.8rem; margin-top: 4px; display: none; font-style: italic; }
+
+    /* ESTILOS DO MODAL FLUTUANTE DA POLÍTICA DE PRIVACIDADE */
+    .privacy-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+    }
+    .privacy-card {
+      position: relative;
+      background: #0a1325;
+      border: 1px solid rgba(195, 160, 90, 0.35);
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 720px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+    .privacy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .privacy-header h3 { margin: 0; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    .privacy-close { color: rgba(255, 255, 255, 0.7); font-size: 1.75rem; line-height: 1; cursor: pointer; border: none; background: none; }
+    .privacy-close:hover { color: #c3a05a; }
+    .privacy-body { overflow-y: auto; padding: 16px 24px 24px; color: rgba(255, 255, 255, 0.8); line-height: 1.7; font-size: 0.9rem; }
+    .privacy-body h4 { color: #c3a05a; font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    .privacy-body p { margin: 0 0 0.9rem; }
+    .privacy-body ul { margin: 0 0 0.9rem; padding-left: 1.25rem; list-style: disc; }
+    .privacy-body li { margin-bottom: 0.35rem; }
+    .privacy-body strong { color: #fff; }
+    .privacy-body a { color: #c3a05a; text-decoration: underline; }
+  </style>
+ </head>
+<body class="text-white/90 min-h-screen antialiased selection:bg-alis-gold selection:text-alis-dark">
+
+<!-- HEADER RESPONSIVO -->
+<header class="sticky top-0 z-50 bg-[#0a1325] border-b border-white/10 px-4 md:px-12 py-4">
+  <div class="w-full flex items-center justify-between gap-4 md:gap-8">
+    
+    <!-- Logo alinhada à esquerda -->
+    <a href="/" class="flex items-center shrink-0" id="site-logo-container">
+      <img id="site-logo-header" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-14 md:h-24 w-auto object-contain">
+    </a>
+    
+    <!-- Menu Desktop -->
+    <div class="hidden lg:flex items-center gap-8 xl:gap-12 ml-auto">
+      <nav class="flex items-center gap-6 xl:gap-8 text-base xl:text-lg font-bold text-white tracking-wide">
+        <a href="/" class="text-alis-gold transition-colors whitespace-nowrap">Início</a>
+        <a href="/sobre.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Sobre a Alis</a>
+        <a href="/metodologia.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Metodologia</a>
+        <a href="/cultura.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Cultura</a>
+        <a href="/planos.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Planos</a>
+        <a href="/vagas.html" class="text-alis-gold hover:underline transition-colors flex items-center gap-2 font-bold whitespace-nowrap">
+          <i data-lucide="briefcase" class="w-5 h-5"></i> Vagas Abertas
+        </a>
+      </nav>
+      
+      <div class="flex items-center gap-5 border-l border-white/10 pl-6 shrink-0">
+        <a href="https://wa.me/5531975061698" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="WhatsApp">
+          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" /></svg>
+        </a>
+        <a href="https://www.instagram.com/soualisrh/" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="Instagram">
+          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@soualisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="TikTok">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/alisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        
+        <button type="button" onclick="abrirAreaCliente()" class="btn-outline-gold px-4 xl:px-5 py-3 rounded-full font-bold uppercase tracking-wider text-xs whitespace-nowrap flex items-center gap-2" aria-label="Área do Cliente">
+          <i data-lucide="user-round" class="w-4 h-4"></i><span class="hidden xl:inline">Área do Cliente</span>
+        </button>
+        <a href="#diagnostico" class="btn-gold px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs shadow-md whitespace-nowrap">
+          Solicitar Avaliação
+        </a>
+      </div>
+    </div>
+
+    <!-- Botão Hambúrguer Mobile -->
+    <div class="flex items-center gap-3 lg:hidden">
+      <a href="#diagnostico" class="btn-gold px-4 py-2 rounded-full font-bold uppercase tracking-wider text-[10px] shadow-sm whitespace-nowrap">
+        Avaliação
+      </a>
+      <button id="menu-btn" aria-label="Abrir Menu" class="text-alis-gold p-2 focus:outline-none flex items-center justify-center">
+        <svg class="w-7 h-7 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- GAVETA MENU MOBILE (Com link 'Início' incluído) -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-[#070e1c] z-[100] border-l border-white/10 p-6 flex flex-col justify-between lg:hidden transition-transform duration-300 translate-x-full">
+  <div class="space-y-8">
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <span class="text-alis-gold font-bold text-sm tracking-widest uppercase">Menu</span>
+      <button id="close-menu-btn" class="text-white/70 hover:text-white focus:outline-none">
+        <svg class="w-7 h-7 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/>
+          <path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+    
+    <nav class="flex flex-col gap-6 text-lg font-bold text-white">
+      <a href="/" onclick="closeMobileMenu()" class="text-alis-gold transition-colors">Início</a>
+      <a href="/sobre.html" onclick="closeMobileMenu()" class="hover:text-alis-gold transition-colors">Sobre a Alis</a>
+      <a href="/metodologia.html" onclick="closeMobileMenu()" class="hover:text-alis-gold transition-colors">Metodologia</a>
+      <a href="/cultura.html" onclick="closeMobileMenu()" class="hover:text-alis-gold transition-colors">Cultura</a>
+      <a href="/planos.html" onclick="closeMobileMenu()" class="hover:text-alis-gold transition-colors">Planos</a>
+      <a href="/vagas.html" onclick="closeMobileMenu()" class="text-alis-gold hover:underline flex items-center gap-2">
+        <i data-lucide="briefcase" class="w-5 h-5"></i> Vagas Abertas
+      </a>
+      <a href="/blog.html" onclick="closeMobileMenu()" class="hover:text-alis-gold transition-colors">Conteúdo</a>
+      <button type="button" onclick="closeMobileMenu(); abrirAreaCliente();" class="btn-outline-gold rounded-full py-3 text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="user-round" class="w-4 h-4"></i> Área do Cliente</button>
+    </nav>
+  </div>
+
+  <div class="space-y-6 pt-6 border-t border-white/10">
+    <div class="flex items-center justify-around text-alis-gold">
+      <a href="https://wa.me/5531975061698" target="_blank" aria-label="WhatsApp">
+        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+      </a>
+      <a href="https://www.instagram.com/soualisrh/" target="_blank" aria-label="Instagram">
+        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@soualisrh" target="_blank" aria-label="TikTok">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/alisrh" target="_blank" aria-label="LinkedIn">
+        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <a href="#diagnostico" onclick="closeMobileMenu()" class="btn-gold w-full py-3.5 rounded-full font-bold uppercase tracking-wider text-xs shadow-md text-center block">
+      Solicitar Avaliação
+    </a>
+  </div>
+</div>
+    
+<!-- HERO SECTION RESPONSIVA -->
+  <section class="relative py-16 md:py-40 overflow-hidden flex items-center justify-center border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.02] via-transparent to-transparent">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <span class="text-[10px] md:text-[11px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-alis-gold block mb-4 md:mb-6 italic">Consultoria Estratégica de RH</span>
+      
+      <h1 data-cms="hero.titulo" class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.3] md:leading-[1.25]">
+        Toda empresa que cresce rápido enfrenta o mesmo dilema: liderar o voo da organização ou <span class="text-alis-gold-light italic">apagar os incêndios</span> que o próprio crescimento provoca.
+      </h1>
+      
+      <p data-cms="hero.texto" class="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        A Alis RH existe para essa escolha. Unimos psicologia organizacional a rigor técnico e devolvemos à liderança o que o crescimento costuma consumir primeiro: a capacidade de planejar. Cada processo que assumimos recebe o mesmo nível de profundidade, do diagnóstico à decisão final.
+      </p>
+      
+      <div class="mt-8 md:mt-12 flex justify-center">
+        <a data-cms-href="hero.botao_principal.link" href="#diagnostico" class="btn-gold w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl flex items-center justify-center gap-3">
+          <span data-cms="hero.botao_principal.texto">Solicitar avaliação estratégica</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] bg-alis-gold/5 rounded-full blur-[100px] md:blur-[140px] pointer-events-none"></div>
+  </section>
+
+ <!-- SEÇÃO UNIFICADA: SOBRE A ALIS (ORIGEM + PROPÓSITO + CULTURA RESPONSIVOS) -->
+  <section id="sobre" class="sec-light py-16 md:py-24 relative">
+    <div class="max-w-5xl mx-auto px-6 space-y-12 md:space-y-16">
+      
+      <!-- Parte 1: Origem do Nome Alis -->
+      <div>
+        <div class="text-center mb-8 md:mb-10">
+          <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Nossa Essência</span>
+          <h2 data-cms="origem.titulo" class="text-2xl md:text-3xl font-bold uppercase tracking-wide">De onde vem o nome Alis</h2>
+          <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+        </div>
+        <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-10 hover:border-alis-gold/20 transition-all duration-300">
+          <div data-cms="origem.conteudo" class="text-white/80 leading-relaxed text-base md:text-lg space-y-4">
+            <p><span class="italic font-bold text-alis-gold">Alis</span> vem do latim e significa asas: elevação, cuidado e crescimento contínuo. O símbolo não é decorativo. Ele descreve o método.</p>
+            <p class="text-white/70 text-sm md:text-base">Aves migratórias voam em formação porque cada integrante reduz o esforço de quem vem atrás, permitindo que o conjunto alcance distâncias que nenhuma delas alcançaria isoladamente. É essa lógica que aplicamos à gestão de pessoas: quando o esforço é bem distribuído, a liderança deixa de carregar sozinha o peso do crescimento e passa a guiar a rota.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parte 2: Missão e Visão (Propósito) -->
+      <div>
+        <div class="text-center mb-8 md:mb-10">
+          <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Nosso Propósito</span>
+          <h2 data-cms="proposito.titulo" class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Por que a Alis RH existe</h2>
+        </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-12">
+  <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+    <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-6">
+      <i data-lucide="target" class="w-6 h-6 text-alis-gold"></i>
+    </div>
+    <h3 data-cms="proposito.missao.titulo" class="text-sm font-bold text-alis-gold tracking-widest uppercase mb-4 italic">Missão</h3>
+    <p data-cms="proposito.missao.texto" class="text-white/70 leading-relaxed text-sm md:text-base">
+      Tirar a gestão de pessoas da informalidade e devolver ao RH o lugar de decisão estratégica dentro do negócio.
+    </p>
+  </div>
+  <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+    <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-6">
+      <i data-lucide="compass" class="w-6 h-6 text-alis-gold"></i>
+    </div>
+    <h3 data-cms="proposito.visao.titulo" class="text-sm font-bold text-alis-gold tracking-widest uppercase mb-4 italic">Visão</h3>
+    <p data-cms="proposito.visao.texto" class="text-white/70 leading-relaxed text-sm md:text-base">
+      Ser a consultoria de referência nacional para lideranças que tratam a gestão de pessoas como decisão estratégica, com o mesmo rigor aplicado a qualquer outra área do negócio.
+    </p>
+  </div>
+</div>
+        <!-- Parte 3: Os 5 Ps da Alis -->
+        <div id="cultura" class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+          <div class="text-center mb-6">
+            <h3 data-cms="cultura.titulo" class="text-base font-bold text-alis-gold tracking-widest uppercase italic">Os 5 Ps da Alis</h3>
+            <p data-cms="cultura.subtitulo" class="text-white/50 text-xs md:text-sm mt-1">Nossos valores, em uma palavra cada</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+            <div>
+              <p class="text-white font-bold text-base uppercase tracking-wide mb-1.5" data-cms="cultura.pilares.0.titulo">Precisão</p>
+              <p class="text-white/60 text-xs md:text-sm leading-relaxed" data-cms="cultura.pilares.0.descricao">Decisão validada por dado e método, nunca por achismo.</p>
+            </div>
+            <div>
+              <p class="text-white font-bold text-base uppercase tracking-wide mb-1.5" data-cms="cultura.pilares.1.titulo">Parceria</p>
+              <p class="text-white/60 text-xs md:text-sm leading-relaxed" data-cms="cultura.pilares.1.descricao">Comunicação direta com quem lidera, sem meias-verdades.</p>
+            </div>
+            <div>
+              <p class="text-white font-bold text-base uppercase tracking-wide mb-1.5" data-cms="cultura.pilares.2.titulo">Profundidade</p>
+              <p class="text-white/60 text-sm leading-relaxed" data-cms="cultura.pilares.2.descricao">Poucos clientes por vez, para garantir atenção real.</p>
+            </div>
+            <div>
+              <p class="text-white font-bold text-base uppercase tracking-wide mb-1.5" data-cms="cultura.pilares.3.titulo">Pragmatismo</p>
+              <p class="text-white/60 text-xs md:text-sm leading-relaxed" data-cms="cultura.pilares.3.descricao">Soluções aplicáveis à rotina real da operação.</p>
+            </div>
+            <div>
+              <p class="text-white font-bold text-base uppercase tracking-wide mb-1.5" data-cms="cultura.pilares.4.titulo">Previsibilidade</p>
+              <p class="text-white/60 text-xs md:text-sm leading-relaxed" data-cms="cultura.pilares.4.descricao">Crescimento estável, sem picos e sem rotatividade.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- DEPOIMENTOS / PROVA SOCIAL — fica oculto até haver citações reais. Preencha os 3 cards e REMOVA o atributo "hidden" da section. -->
+<section id="depoimentos" hidden class="py-16 md:py-24 bg-[#0a1325] border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-10 md:mb-14">
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Prova social</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide text-white">O que dizem as lideranças que contratam com a Alis</h2>
+      <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
+        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
+        <figcaption class="border-t border-white/10 pt-4">
+          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
+          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
+        </figcaption>
+      </figure>
+      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
+        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
+        <figcaption class="border-t border-white/10 pt-4">
+          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
+          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
+        </figcaption>
+      </figure>
+      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
+        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
+        <figcaption class="border-t border-white/10 pt-4">
+          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
+          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ACESSO RÁPIDO: VAGAS, CONTEÚDO E ÁREA DO CLIENTE -->
+<section id="acesso-rapido" class="sec-paper py-16 md:py-24 border-t border-black/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-10 md:mb-12">
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Acesso rápido</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Vagas, conteúdo e acompanhamento</h2>
+      <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="/vagas.html" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
+        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-bold">Vagas Abertas</h3>
+        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Posições que a Alis está conduzindo no momento, de operacionais a lideranças.</p>
+        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Ver vagas <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+      </a>
+      <a href="/blog.html" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
+        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-bold">Hub de Conteúdo</h3>
+        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Artigos e análises sobre gestão de pessoas, decisão e psicologia organizacional.</p>
+        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Acessar conteúdos <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+      </a>
+      <button type="button" onclick="abrirAreaCliente()" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
+        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="layout-dashboard" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-bold">Área do Cliente</h3>
+        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Acompanhe projetos, relatórios e painéis do seu processo no Asana.</p>
+        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Acessar painel <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .f-label { display:block; margin-bottom:.5rem; font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; font-style:italic; color:rgb(195,160,90); }
+  .f-input { width:100%; padding:1rem; border-radius:1rem; font-size:.875rem; outline:none; transition:all .2s; }
+  .f-input:focus { border-color:rgb(195,160,90) !important; }
+  .erro-campo { color:#ef4444; font-size:.8rem; margin-top:4px; font-style:italic; }
+  .erro-campo:empty { display:none; }
+  .f-check { display:flex; align-items:center; gap:.75rem; cursor:pointer; font-size:.875rem; transition:color .2s; }
+  .f-check:hover { color:#fff; }
+</style>
+
+<!-- FORMULÁRIO DE DIAGNÓSTICO RESPONSIVO -->
+<section id="diagnostico" class="py-16 md:py-24 border-t border-white/5 bg-gradient-to-b from-transparent to-black/20">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-8 md:mb-12">
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Avaliação de compatibilidade</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Solicite sua avaliação</h2>
+      <p class="text-white/50 text-xs md:text-sm max-w-xl mx-auto mt-4 leading-relaxed">Antes de propor qualquer solução, avaliamos se este é o momento certo para a sua empresa contar com a Alis.</p>
+    </div>
+
+    <!-- MENSAGEM DE SUCESSO DA HUBSPOT -->
+    <div id="success-msg-choice" style="display:none;" class="text-center py-8 md:py-12 bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 shadow-xl">
+      <div class="bg-amber-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="check" class="text-amber-500 w-8 h-8"></i></div>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 italic">Recebemos suas informações.</h2>
+      <p class="text-white/60 text-base md:text-lg mb-8 max-w-xl mx-auto">Avaliamos cada solicitação individualmente. Havendo aderência ao nosso escopo de atuação, a Gabriela entra em contato para agendar a conversa.</p>
+      <div class="border-t border-white/10 pt-8 mt-4">
+        <p class="text-amber-200 font-bold uppercase tracking-widest text-xs mb-6 italic">Prefere adiantar nossa conversa e ir direto para a reunião?</p>
+        <div class="flex justify-center">
+          <a href="https://meetings.hubspot.com/gabriela430" target="_blank" rel="noopener noreferrer" class="btn-gold font-bold px-8 py-4 rounded-full text-xs uppercase tracking-widest shadow-xl flex items-center gap-2">
+            Agendar reunião agora <i data-lucide="calendar" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INNER CONTAINER DO FORMULÁRIO -->
+    <div id="form-inner-container" class="bg-white/[0.01] border border-white/5 rounded-[2rem] p-6 sm:p-8 md:p-12 shadow-xl">
+      <form id="form-avaliacao" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div class="flex flex-col">
+            <label for="nome" class="f-label">Nome completo *</label>
+            <input type="text" id="nome" autocomplete="name" maxlength="255" placeholder="Seu nome" class="input-alis-dark-form f-input">
+            <p class="erro-campo" data-erro="nome"></p>
+          </div>
+          <div class="flex flex-col">
+            <label for="email" class="f-label">E-mail corporativo *</label>
+            <input type="email" id="email" autocomplete="email" maxlength="255" placeholder="seu@email.com" class="input-alis-dark-form f-input">
+            <p class="erro-campo" data-erro="email"></p>
+          </div>
+          <div class="flex flex-col">
+            <label for="whatsapp" class="f-label">WhatsApp *</label>
+            <input type="tel" id="whatsapp" autocomplete="tel" maxlength="20" placeholder="(XX) XXXXX-XXXX" class="input-alis-dark-form f-input">
+            <p class="erro-campo" data-erro="whatsapp"></p>
+          </div>
+          <div class="flex flex-col">
+            <label for="cargo" class="f-label">Cargo *</label>
+            <select id="cargo" class="input-alis-dark-form f-input text-white" style="background-color: rgb(10, 19, 37);">
+              <option value="" disabled selected>Seu cargo</option>
+              <option value="Sócio / CEO">Sócio / CEO</option>
+              <option value="Diretor(a)">Diretor(a)</option>
+              <option value="Gerente / Head">Gerente / Head</option>
+              <option value="Coordenador(a)">Coordenador(a)</option>
+              <option value="Especialista">Especialista</option>
+              <option value="Analista">Analista</option>
+              <option value="Assistente / Auxiliar">Assistente / Auxiliar</option>
+              <option value="Estagiário(a)">Estagiário(a)</option>
+            </select>
+            <p class="erro-campo" data-erro="cargo"></p>
+          </div>
+          <div class="flex flex-col">
+            <label for="empresa" class="f-label">Empresa *</label>
+            <input type="text" id="empresa" autocomplete="organization" maxlength="255" placeholder="Nome da empresa" class="input-alis-dark-form f-input">
+            <p class="erro-campo" data-erro="empresa"></p>
+          </div>
+          <div class="flex flex-col">
+            <label for="colaboradores" class="f-label">Número de colaboradores *</label>
+            <select id="colaboradores" class="input-alis-dark-form f-input text-white" style="background-color: rgb(10, 19, 37);">
+              <option value="" disabled selected>Selecione a faixa</option>
+              <option value="1 - 10">1 - 10</option>
+              <option value="11 - 50">11 - 50</option>
+              <option value="51 - 100">51 - 100</option>
+              <option value="Mais de 100">Mais de 100</option>
+            </select>
+            <p class="erro-campo" data-erro="colaboradores"></p>
+          </div>
+        </div>
+
+        <div class="space-y-6 pt-8">
+          <p class="f-label text-center text-xs md:text-sm">Quais desafios de gestão você enfrenta hoje? *</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-white/80">
+            <label class="f-check"><input type="checkbox" name="desafio" value="Recrutamento e seleção" class="custom-checkbox-form"> Recrutamento e seleção</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Clima e cultura" class="custom-checkbox-form"> Clima e cultura</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Gestão de performance" class="custom-checkbox-form"> Gestão de performance</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Estruturação de processos" class="custom-checkbox-form"> Estruturação de processos</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Terceirização do setor de RH" class="custom-checkbox-form"> Terceirização do setor de RH</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Remuneração e benefícios" class="custom-checkbox-form"> Remuneração e benefícios</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Treinamento e desenvolvimento" class="custom-checkbox-form"> Treinamento e desenvolvimento</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Recolocação profissional" class="custom-checkbox-form"> Recolocação profissional</label>
+            <label class="f-check"><input type="checkbox" name="desafio" value="Outro" class="custom-checkbox-form"> Outro</label>
+          </div>
+          <p class="erro-campo text-center" data-erro="desafios"></p>
+
+          <div class="pt-6">
+            <label for="mensagem" class="f-label">Deseja adiantar algum assunto?</label>
+            <textarea id="mensagem" maxlength="65535" placeholder="Escreva sua mensagem..." class="input-alis-dark-form f-input h-32 resize-none"></textarea>
+          </div>
+        </div>
+
+        <div class="pt-8">
+          <label class="f-check items-start text-white/70">
+            <input type="checkbox" id="aceite" class="custom-checkbox-form mt-0.5 shrink-0">
+            <span>Li e concordo com a <a href="#" onclick="openPrivacyModal(event)" class="text-alis-gold underline hover:text-alis-gold-light">Política de Privacidade</a> da Alis RH e autorizo o contato sobre a minha solicitação.</span>
+          </label>
+          <p class="erro-campo" data-erro="aceite"></p>
+        </div>
+
+        <input type="text" id="site-extra" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+
+        <div class="flex justify-center pt-8">
+          <button type="submit" id="enviar" class="btn-gold w-full sm:w-auto px-12 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+            Enviar solicitação <i data-lucide="send-horizontal" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <p id="erro-envio" class="erro-campo text-center pt-4" hidden>Não foi possível enviar agora. Tente novamente ou fale com a Gabriela pelo <a href="https://wa.me/5531975061698" class="underline">WhatsApp</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CARREGAMENTO SCRIPT HUBSPOT SUBMISSION API -->
+<script src="https://js.hsforms.net/forms/v2.js"></script>
+<script>
+(function () {
+  var PORTAL_ID = '51916920';
+  var FORM_ID = 'd4678c41-8117-48c1-8b18-067cb51d1d98';
+  var form = document.getElementById('form-avaliacao');
+  var botao = document.getElementById('enviar');
+  
+  function byId(id) { return document.getElementById(id); }
+  function erro(nome, msg) {
+    var el = form.querySelector('[data-erro="' + nome + '"]');
+    if (el) el.textContent = msg || '';
+  }
+
+  byId('whatsapp').addEventListener('input', function () {
+    if (this.value.charAt(0) === '+') return;
+    var d = this.value.replace(/\D/g, '').slice(0, 11);
+    if (d.length > 10) this.value = d.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+    else if (d.length > 6) this.value = d.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+    else if (d.length > 2) this.value = d.replace(/^(\d{2})(\d*)/, '($1) $2');
+    else this.value = d;
+  });
+
+  function validar() {
+    var ok = true;
+    ['nome', 'email', 'whatsapp', 'cargo', 'empresa', 'colaboradores', 'desafios', 'aceite'].forEach(function (n) { erro(n, ''); });
+    var nome = byId('nome').value.trim();
+    if (!nome) { erro('nome', 'Preencha este campo obrigatório'); ok = false; }
+    else if (nome.split(/\s+/).length < 2) { erro('nome', 'Informe nome e sobrenome'); ok = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(byId('email').value.trim())) { erro('email', 'Informe um e-mail válido'); ok = false; }
+    if (byId('whatsapp').value.replace(/\D/g, '').length < 10) { erro('whatsapp', 'Informe um número válido'); ok = false; }
+    if (!byId('cargo').value) { erro('cargo', 'Selecione uma opção'); ok = false; }
+    if (!byId('empresa').value.trim()) { erro('empresa', 'Preencha este campo obrigatório'); ok = false; }
+    if (!byId('colaboradores').value) { erro('colaboradores', 'Selecione uma opção'); ok = false; }
+    if (!form.querySelectorAll('input[name="desafio"]:checked').length) { erro('desafios', 'Selecione pelo menos um desafio'); ok = false; }
+    if (!byId('aceite').checked) { erro('aceite', 'Para enviar, é necessário aceitar a Política de Privacidade'); ok = false; }
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    byId('erro-envio').hidden = true;
+    if (byId('site-extra').value) return;
+    if (!validar()) return;
+
+ // Coleta as opções selecionadas garantindo a junção correta por ";"
+    var selecionados = Array.prototype.slice.call(form.querySelectorAll('input[name="desafio"]:checked'))
+      .map(function (c) { return c.value; });
+    
+    var valorDesafios = selecionados.join(';');
+
+    var payload = {
+      portalId: PORTAL_ID,
+      formId: FORM_ID,
+      fields: [
+        { name: 'strong_nome_completo___strong_', value: byId('nome').value.trim() },
+        { name: 'email', value: byId('email').value.trim() },
+        { name: 'strong_whatsapp___strong_', value: byId('whatsapp').value.trim() },
+        { name: 'strong_cargo__nbsp___strong_', value: byId('cargo').value },
+        { name: 'strong_empresa___strong_', value: byId('empresa').value.trim() },
+        { name: 'strong_faixa_de_colaboradores___strong_', value: byId('colaboradores').value },
+        { name: 'strong_desafios_de_gestao__strong_', value: valorDesafios },
+        { name: 'message', value: byId('mensagem').value.trim() }
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      },
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: "Concordo em permitir que a Alis RH armazene e processe meus dados pessoais.",
+          communications: [
+            {
+              value: true,
+              subscriptionTypeId: 999,
+              text: "Eu concordo em receber outras comunicações da Alis RH."
+            }
+          ]
+        }
+      }
+    };
+
+    botao.disabled = true;
+
+    var xhr = new XMLHttpRequest();
+    var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + PORTAL_ID + '/' + FORM_ID;
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200 || xhr.status === 204) {
+          byId('form-inner-container').style.display = 'none';
+          var ok = byId('success-msg-choice');
+          ok.style.display = 'block';
+          ok.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          byId('erro-envio').hidden = false;
+          botao.disabled = false;
+        }
+      }
+    };
+    xhr.send(JSON.stringify(payload));
+  });
+})();
+</script>
+  
+ <!-- MODAL ÁREA DO CLIENTE -->
+<div id="clientModal" role="dialog" aria-modal="true" aria-labelledby="clientModalTitle" onclick="if(event.target===this)fecharAreaCliente()">
+  <div class="bg-[#fffdf8] text-[#0a1325] rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+    <button type="button" onclick="fecharAreaCliente()" class="absolute top-4 right-4 text-[#0a1325]/50 hover:text-[#0a1325]" aria-label="Fechar">✕</button>
+    <div class="w-12 h-12 rounded-2xl bg-alis-gold/20 flex items-center justify-center mb-5"><i data-lucide="layout-dashboard" class="w-6 h-6" style="color:rgb(139,108,42)"></i></div>
+    <h2 id="clientModalTitle" class="text-xl font-bold mb-2">Área do Cliente</h2>
+    <p class="text-sm leading-relaxed text-[#24324d] mb-6">O acompanhamento do seu projeto, com cronograma, relatórios e painéis, acontece no Asana. Entre com o e-mail do convite que você recebeu da Alis.</p>
+    <a href="https://app.asana.com/-/login" target="_blank" rel="noopener noreferrer" class="btn-gold w-full py-3.5 rounded-full font-bold uppercase tracking-widest text-xs text-center block">Entrar no Asana</a>
+    <p class="text-xs text-[#24324d] mt-5 text-center">Não recebeu o convite? <a href="https://wa.me/5531975061698" target="_blank" rel="noopener noreferrer" class="underline font-bold" style="color:rgb(139,108,42)">Fale com a Gabriela</a></p>
+  </div>
+</div>
+<script>
+  function abrirAreaCliente(){ var m=document.getElementById('clientModal'); if(m){ m.classList.add('open'); document.body.style.overflow='hidden'; if(window.lucide) lucide.createIcons(); } }
+  function fecharAreaCliente(){ var m=document.getElementById('clientModal'); if(m){ m.classList.remove('open'); document.body.style.overflow=''; } }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') fecharAreaCliente(); });
+</script>
+
+<!-- BALÃO DA POLÍTICA DE PRIVACIDADE (MODAL) -->
+<div id="privacyModal" class="privacy-overlay" onclick="closePrivacyModal()">
+  <div class="privacy-card" onclick="event.stopPropagation()">
+    <div class="privacy-header">
+      <h3>Política de Privacidade</h3>
+      <button type="button" class="privacy-close" onclick="closePrivacyModal()">&times;</button>
+    </div>
+    <div class="privacy-body">
+      <p class="versao" style="color:rgba(255,255,255,.5); font-size:.8rem; margin:0 0 1rem;">Alis RH | Versão 1.0 | Vigente a partir de 31 de outubro de 2026</p>
+
+      <h4>1. Quem somos</h4>
+      <p>A Alis RH é uma consultoria estratégica de RH, inscrita no CNPJ 59.825.652/0001-08, com atuação em Betim, MG. Para os fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018, a LGPD), a Alis RH é a controladora dos dados pessoais tratados por meio deste site.</p>
+      <p>Contato para assuntos de privacidade e proteção de dados: Gabriela, fundadora, <a href="mailto:gabriela@alisrh.com.br">gabriela@alisrh.com.br</a>.</p>
+
+      <h4>2. Quais dados coletamos</h4>
+      <p>Coletamos dados de duas formas.</p>
+      <p><strong>Dados que você nos envia.</strong> Ao preencher o formulário de avaliação de compatibilidade, você nos informa nome completo, e-mail corporativo, número de WhatsApp, cargo, empresa, faixa de número de colaboradores, os desafios de gestão que enfrenta e, se quiser, uma mensagem livre. Só pedimos o que é necessário para entender sua solicitação e decidir se podemos ajudar.</p>
+      <p><strong>Dados de navegação.</strong> Quando você acessa o site, ferramentas de análise e de relacionamento comercial podem registrar informações como endereço IP, tipo de navegador e dispositivo, páginas visitadas, tempo de permanência e a origem do acesso.</p>
+
+      <h4>3. Para que usamos seus dados</h4>
+      <ul>
+        <li><strong>Responder à sua solicitação e avaliar a compatibilidade</strong> entre a sua necessidade e os serviços da Alis RH. Base legal: execução de procedimentos preliminares a um possível contrato, a pedido do titular, e consentimento.</li>
+        <li><strong>Agendar e conduzir a conversa inicial</strong> com você. Base legal: as mesmas do item anterior.</li>
+        <li><strong>Manter o histórico do nosso relacionamento comercial</strong> em um sistema de gestão de contatos (CRM), para não pedirmos a mesma informação duas vezes. Base legal: legítimo interesse e consentimento.</li>
+        <li><strong>Entender como o site é usado</strong> e melhorar sua comunicação. Base legal: consentimento, quando exigido para cookies não essenciais, e legítimo interesse.</li>
+        <li><strong>Cumprir obrigações legais e regulatórias</strong>, quando aplicável.</li>
+      </ul>
+      <p>Não vendemos seus dados e não os utilizamos para decisões automatizadas que produzam efeitos relevantes sobre você.</p>
+
+      <h4>4. Com quem compartilhamos</h4>
+      <p>Compartilhamos dados apenas com fornecedores necessários para operar o site e o atendimento, sempre para a finalidade descrita nesta política:</p>
+      <ul>
+        <li><strong>HubSpot</strong>, plataforma de CRM em que registramos contatos e acompanhamos o relacionamento comercial;</li>
+        <li><strong>Google</strong>, para agendamento de reuniões e e-mail corporativo;</li>
+        <li><strong>Provedor de hospedagem do site</strong>, que mantém as páginas no ar.</li>
+      </ul>
+      <p>Esses fornecedores podem armazenar ou processar dados em servidores fora do Brasil. Nesses casos, a transferência é feita com base nas hipóteses previstas na LGPD e em contratos ou termos que preveem medidas de proteção.</p>
+
+      <h4>5. Cookies e tecnologias de rastreamento</h4>
+      <p>Usamos cookies e tecnologias semelhantes, incluindo o código de rastreamento do HubSpot, para entender quais páginas e campanhas trazem visitantes ao site e relacionar essas visitas a solicitações enviadas pelo formulário.</p>
+
+      <h4>6. Por quanto tempo guardamos seus dados</h4>
+      <p>Guardamos os dados pelo tempo necessário para a finalidade para a qual foram coletados. Se a solicitação não evoluir para uma conversa ou uma contratação, eliminamos ou anonimizamos os dados em até 12 meses após o último contato.</p>
+
+      <h4>7. Seus direitos</h4>
+      <p>Você pode, a qualquer momento, solicitar acesso, correção, eliminação ou revogação de consentimento escrevendo para <a href="mailto:gabriela@alisrh.com.br">gabriela@alisrh.com.br</a>.</p>
+
+      <h4>8. Como protegemos seus dados</h4>
+      <p>Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado, perda e uso indevido.</p>
+
+      <h4>9. Contato</h4>
+      <p>Dúvidas sobre esta política ou sobre o tratamento dos seus dados: <a href="mailto:gabriela@alisrh.com.br">gabriela@alisrh.com.br</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPrivacyModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('privacyModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePrivacyModal() {
+    document.getElementById('privacyModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closePrivacyModal(); }
+  });
+</script>
+
+<!-- RODAPÉ PERFEITAMENTE ALINHADO E COM ÍCONES HARMONIZADOS -->
+  <footer class="border-t border-white/10 bg-[#070e1c] text-white/80 pt-16 pb-12 px-6 md:px-12">
+    <!-- Bloco Principal com flex justify-between -->
+    <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+      
+      <!-- Coluna 1: Logo e Slogan -->
+      <div class="space-y-4 max-w-sm shrink-0">
+        <a href="/" class="block">
+          <img id="site-logo-footer" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-20 md:h-24 w-auto object-contain">
+        </a>
+        <p id="rodape-texto" class="text-white/60 text-base leading-relaxed">
+          Sua parceira estratégica em gestão de pessoas para organizar e escalar o seu negócio.
+        </p>
+      </div>
+
+      <!-- Coluna 2: Navegação -->
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold text-alis-gold uppercase tracking-widest">Navegação</h4>
+        <ul class="space-y-2.5 text-base font-medium">
+          <li><a href="/sobre.html" class="hover:text-alis-gold transition-colors">Sobre a Alis</a></li>
+          <li><a href="/metodologia.html" class="hover:text-alis-gold transition-colors">Metodologia</a></li>
+          <li><a href="/cultura.html" class="hover:text-alis-gold transition-colors">Cultura</a></li>
+          <li><a href="/planos.html" class="hover:text-alis-gold transition-colors">Planos</a></li>
+          <li><a href="/vagas.html" class="text-alis-gold hover:underline transition-colors font-bold">Vagas Abertas</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Contato -->
+      <div class="space-y-4">
+        <h4 class="text-xs font-bold text-alis-gold uppercase tracking-widest">Contato</h4>
+        <div class="space-y-2 text-base">
+          <p><a href="mailto:gabriela@alisrh.com.br" class="hover:text-alis-gold transition-colors">gabriela@alisrh.com.br</a></p>
+          <p><a href="https://wa.me/5531975061698" target="_blank" class="hover:text-alis-gold transition-colors">(31) 97506-1698 <span class="text-alis-gold font-semibold">(Gabriela)</span></a></p>
+        </div>
+      </div>
+
+      <!-- Coluna 4: Redes Sociais com ícones na mesma espessura e escala -->
+      <div class="space-y-4 shrink-0">
+        <h4 class="text-xs font-bold text-alis-gold uppercase tracking-widest">Redes Sociais</h4>
+        <div class="flex items-center gap-5">
+          <!-- WhatsApp Harmonizado -->
+          <a href="https://wa.me/5531975061698" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="WhatsApp">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+              <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/soualisrh/" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="Instagram">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@soualisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="TikTok">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/alisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright Centralizado Abaixo -->
+    <div class="border-t border-white/5 pt-8 text-center text-xs text-white/40">
+      © <script>document.write(new Date().getFullYear())</script> Alis RH. Todos os direitos reservados.
+    </div>
+  </footer>
+
+     
+  <!-- Botão Flutuante do WhatsApp -->
+<a 
+  href="https://wa.me/5531975061698?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Alis%20RH." 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  id="whatsapp-btn"
+  aria-label="Fale conosco pelo WhatsApp"
+>
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+  </svg>
+</a>
+
+  <style>
+    #whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 9999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    #whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+<script>
+    // Inicializa os ícones do Lucide
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+   // LÓGICA DO MENU MOBILE
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+
+  </script>
+<!-- SCRIPT DINÂMICO DE LEITURA DO SVELTIA CMS (SITE.YML INTELLIGENT PARSER) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('/content/site.yml?v=' + new Date().getTime());
+        if (!res.ok) return;
+        const textoYaml = await res.text();
+
+        // 1. Extrai a descrição do bloco rodape: no YAML
+        let descRodape = null;
+        const matchRodape = textoYaml.match(/rodape:[\s\S]*?(?=\n\w+:|$)/);
+        if (matchRodape) {
+          const matchDesc = matchRodape[0].match(/descricao:\s*["']?([^"'\n\r]+)["']?/);
+          if (matchDesc && matchDesc[1].trim() !== "''" && matchDesc[1].trim() !== '""') {
+            descRodape = matchDesc[1].trim();
+          }
+        }
+
+        // Se não achou em rodape.descricao, tenta a chave geral
+        if (!descRodape) {
+          const matchGeral = textoYaml.match(/(?:^|\n)\s*descricao:\s*["']?([^"'\n\r]+)["']?/i);
+          if (matchGeral && matchGeral[1].trim() !== "''") descRodape = matchGeral[1].trim();
+        }
+
+        const textRodapeEl = document.getElementById('rodape-texto');
+        if (textRodapeEl && descRodape) {
+          textRodapeEl.innerText = descRodape;
+        }
+
+        // 2. Extrai e aplica a imagem da Logo
+        const matchLogo = textoYaml.match(/(?:^|\n)\s*logo:\s*["']?([^"'\n\r]+)["']?/i);
+        if (matchLogo) {
+          let logoUrl = matchLogo[1].trim();
+          if (!logoUrl.startsWith('/') && !logoUrl.startsWith('http')) logoUrl = '/' + logoUrl;
+          const logoHeader = document.getElementById('site-logo-header');
+          const logoFooter = document.getElementById('site-logo-footer');
+          if (logoHeader) logoHeader.src = logoUrl;
+          if (logoFooter) logoFooter.src = logoUrl;
+        }
+
+        // 3. Extrai e aplica alturas da Logo
+        const matchAltHeader = textoYaml.match(/(?:altura_logo_header|tamanho_logo_header):\s*(\d+)/i);
+        if (matchAltHeader) {
+          const logoHeader = document.getElementById('site-logo-header');
+          if (logoHeader) {
+            logoHeader.style.setProperty('height', `${matchAltHeader[1]}px`, 'important');
+            logoHeader.style.setProperty('max-height', 'none', 'important');
+          }
+        }
+
+        const matchAltFooter = textoYaml.match(/(?:altura_logo_footer|tamanho_logo_footer):\s*(\d+)/i);
+        if (matchAltFooter) {
+          const logoFooter = document.getElementById('site-logo-footer');
+          if (logoFooter) {
+            logoFooter.style.setProperty('height', `${matchAltFooter[1]}px`, 'important');
+            logoFooter.style.setProperty('max-height', 'none', 'important');
+          }
+        }
+      } catch (e) {
+        console.warn('Erro ao ler site.yml:', e);
+      }
+    });
+  </script>
+
+  <!-- ENGINE UNIVERSAL DO SVELTIA CMS -->
+  <script src="/cms-engine.js"></script>
+</body>
+</html>
+</html>
