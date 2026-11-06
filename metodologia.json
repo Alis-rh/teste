@@ -1,0 +1,23 @@
+{
+  "exibir_pagina": true,
+  "titulo": "COMO AGIMOS",
+  "subtitulo": "Nossa Metodologia de Trabalho",
+  "descricao": "Atuamos de forma estruturada para organizar a gestão de pessoas e garantir resultados previsíveis para o seu negócio.",
+  "etapas": [
+    {
+      "passo": "01",
+      "titulo": "Diagnóstico & Mapeamento",
+      "descricao": "Análise profunda da estrutura atual, gargalos da operação e cultura organizacional."
+    },
+    {
+      "passo": "02",
+      "titulo": "Plano de Ação Estratégico",
+      "descricao": "Desenvolvimento de processos sob medida para atração, retenção e desenvolvimento de talentos."
+    },
+    {
+      "passo": "03",
+      "titulo": "Execução & Acompanhamento",
+      "descricao": "Implantação prática lado a lado com a liderança e acompanhamento contínuo dos indicadores."
+    }
+  ]
+}
