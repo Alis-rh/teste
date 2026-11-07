@@ -63,6 +63,14 @@
     .card-link:hover { transform: translateY(-3px); box-shadow:0 14px 34px rgba(10,19,37,.14) !important; }
     #clientModal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; padding:16px; background:rgba(5,10,22,.8); backdrop-filter:blur(4px); }
     #clientModal.open { display:flex; }
+    /* refinamento executivo */
+    .sec-light [class*="bg-white/["], .sec-paper [class*="bg-white/["] { box-shadow:0 1px 2px rgba(60,40,10,.04),0 6px 18px rgba(60,40,10,.05); }
+    .sec-light [class*="border-white"], .sec-paper [class*="border-white"] { border-color: rgba(120,80,20,.12) !important; }
+    .sec-light [class*="bg-white/["]:hover, .sec-paper [class*="bg-white/["]:hover { border-color: rgba(195,160,90,.55) !important; box-shadow:0 16px 36px rgba(60,40,10,.12) !important; }
+    .sec-light [class*="bg-alis-gold/10"], .sec-paper [class*="bg-alis-gold/10"] { border-radius:.75rem !important; background:linear-gradient(135deg,rgba(232,210,160,.6),rgba(195,160,90,.22)) !important; border:1px solid rgba(195,160,90,.4); box-shadow:inset 0 1px 0 rgba(255,255,255,.5); }
+    .sec-light h2, .sec-paper h2 { letter-spacing:.05em; }
+    #site-logo-header { height:2.25rem !important; width:auto !important; max-height:2.25rem !important; }
+    @media (min-width:768px){ #site-logo-header { height:2.75rem !important; max-height:2.75rem !important; } }
     .custom-checkbox-form { width: 20px; height: 20px; cursor: pointer; accent-color: rgb(195, 160, 90); }
     .zf-errorMessage { color: #ef4444; font-size: 0.8rem; margin-top: 4px; display: none; font-style: italic; }
 
@@ -112,55 +120,36 @@
 <body class="text-white/90 min-h-screen antialiased selection:bg-alis-gold selection:text-alis-dark">
 
 <!-- HEADER RESPONSIVO -->
-<header class="sticky top-0 z-50 bg-[#0a1325] border-b border-white/10 px-4 md:px-12 py-4">
-  <div class="w-full flex items-center justify-between gap-4 md:gap-8">
-    
-    <!-- Logo alinhada à esquerda -->
+<header class="sticky top-0 z-50 bg-[#0a1325]/95 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 h-16 md:h-[72px] flex items-center justify-between gap-6">
+
+    <!-- Logo -->
     <a href="/" class="flex items-center shrink-0" id="site-logo-container">
-      <img id="site-logo-header" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-14 md:h-24 w-auto object-contain">
+      <img id="site-logo-header" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-9 md:h-11 w-auto object-contain">
     </a>
-    
-    <!-- Menu Desktop -->
-    <div class="hidden lg:flex items-center gap-8 xl:gap-12 ml-auto">
-      <nav class="flex items-center gap-6 xl:gap-8 text-base xl:text-lg font-bold text-white tracking-wide">
-        <a href="/" class="text-alis-gold transition-colors whitespace-nowrap">Início</a>
-        <a href="/sobre.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Sobre a Alis</a>
-        <a href="/metodologia.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Metodologia</a>
-        <a href="/cultura.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Cultura</a>
-        <a href="/planos.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Planos</a>
-        <a href="/vagas.html" class="text-alis-gold hover:underline transition-colors flex items-center gap-2 font-bold whitespace-nowrap">
-          <i data-lucide="briefcase" class="w-5 h-5"></i> Vagas Abertas
-        </a>
-      </nav>
-      
-      <div class="flex items-center gap-5 border-l border-white/10 pl-6 shrink-0">
-        <a href="https://wa.me/5531975061698" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="WhatsApp">
-          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" /></svg>
-        </a>
-        <a href="https://www.instagram.com/soualisrh/" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="Instagram">
-          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@soualisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="TikTok">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/company/alisrh" target="_blank" class="text-alis-gold hover:text-white transition-colors" aria-label="LinkedIn">
-          <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        
-        <button type="button" onclick="abrirAreaCliente()" class="btn-outline-gold px-4 xl:px-5 py-3 rounded-full font-bold uppercase tracking-wider text-xs whitespace-nowrap flex items-center gap-2" aria-label="Área do Cliente">
-          <i data-lucide="user-round" class="w-4 h-4"></i><span class="hidden xl:inline">Área do Cliente</span>
-        </button>
-        <a href="#diagnostico" class="btn-gold px-6 py-3 rounded-full font-bold uppercase tracking-wider text-xs shadow-md whitespace-nowrap">
-          Solicitar Avaliação
-        </a>
-      </div>
+
+    <!-- Navegação principal (desktop) -->
+    <nav class="hidden xl:flex items-center gap-7 mx-auto" aria-label="Principal">
+      <a href="/" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-alis-gold whitespace-nowrap">Início</a>
+      <a href="/sobre.html" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-white/80 hover:text-alis-gold transition-all whitespace-nowrap">Sobre a Alis</a>
+      <a href="/metodologia.html" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-white/80 hover:text-alis-gold transition-all whitespace-nowrap">Metodologia</a>
+      <a href="/cultura.html" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-white/80 hover:text-alis-gold transition-all whitespace-nowrap">Cultura</a>
+      <a href="/planos.html" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-white/80 hover:text-alis-gold transition-all whitespace-nowrap">Planos</a>
+      <a href="/vagas.html" class="text-xs xl:text-[13px] font-semibold tracking-wider uppercase text-white/80 hover:text-alis-gold transition-all whitespace-nowrap">Vagas Abertas</a>
+    </nav>
+
+    <!-- Ações (desktop) -->
+    <div class="hidden xl:flex items-center gap-3 shrink-0">
+      <span class="h-4 w-[1px] bg-white/15 mx-2" aria-hidden="true"></span>
+      <button type="button" onclick="abrirAreaCliente()" class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-alis-gold hover:text-white transition-colors py-2 px-3 rounded-lg bg-white/5 border border-alis-gold/30 hover:border-alis-gold whitespace-nowrap">
+        <svg class="w-3.5 h-3.5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Portal do Cliente
+      </button>
+      <a href="#diagnostico" class="btn-gold rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-lg hover:scale-105 transition-all whitespace-nowrap">Solicitar Diagnóstico</a>
     </div>
 
-    <!-- Botão Hambúrguer Mobile -->
-    <div class="flex items-center gap-3 lg:hidden">
-      <a href="#diagnostico" class="btn-gold px-4 py-2 rounded-full font-bold uppercase tracking-wider text-[10px] shadow-sm whitespace-nowrap">
-        Avaliação
-      </a>
+    <!-- Ações (mobile / tablet) -->
+    <div class="flex items-center gap-3 xl:hidden">
+      <a href="#diagnostico" class="btn-gold px-4 py-2 rounded-full font-bold uppercase tracking-wider text-[10px] shadow-sm whitespace-nowrap">Diagnóstico</a>
       <button id="menu-btn" aria-label="Abrir Menu" class="text-alis-gold p-2 focus:outline-none flex items-center justify-center">
         <svg class="w-7 h-7 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" x2="20" y1="12" y2="12"/>
@@ -174,7 +163,7 @@
 </header>
 
 <!-- GAVETA MENU MOBILE (Com link 'Início' incluído) -->
-<div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-[#070e1c] z-[100] border-l border-white/10 p-6 flex flex-col justify-between lg:hidden transition-transform duration-300 translate-x-full">
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-[#070e1c] z-[100] border-l border-white/10 p-6 flex flex-col justify-between xl:hidden transition-transform duration-300 translate-x-full">
   <div class="space-y-8">
     <div class="flex items-center justify-between border-b border-white/10 pb-4">
       <span class="text-alis-gold font-bold text-sm tracking-widest uppercase">Menu</span>
@@ -216,36 +205,111 @@
       </a>
     </div>
     <a href="#diagnostico" onclick="closeMobileMenu()" class="btn-gold w-full py-3.5 rounded-full font-bold uppercase tracking-wider text-xs shadow-md text-center block">
-      Solicitar Avaliação
+      Solicitar Diagnóstico
     </a>
   </div>
 </div>
     
 <!-- HERO SECTION RESPONSIVA -->
-  <section class="relative py-16 md:py-40 overflow-hidden flex items-center justify-center border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.02] via-transparent to-transparent">
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-      <span class="text-[10px] md:text-[11px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase text-alis-gold block mb-4 md:mb-6 italic">Consultoria Estratégica de RH</span>
-      
-      <h1 data-cms="hero.titulo" class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.3] md:leading-[1.25]">
-        Toda empresa que cresce rápido enfrenta o mesmo dilema: liderar o voo da organização ou <span class="text-alis-gold-light italic">apagar os incêndios</span> que o próprio crescimento provoca.
-      </h1>
-      
-      <p data-cms="hero.texto" class="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-        A Alis RH existe para essa escolha. Unimos psicologia organizacional a rigor técnico e devolvemos à liderança o que o crescimento costuma consumir primeiro: a capacidade de planejar. Cada processo que assumimos recebe o mesmo nível de profundidade, do diagnóstico à decisão final.
-      </p>
-      
-      <div class="mt-8 md:mt-12 flex justify-center">
-        <a data-cms-href="hero.botao_principal.link" href="#diagnostico" class="btn-gold w-full sm:w-auto px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl flex items-center justify-center gap-3">
-          <span data-cms="hero.botao_principal.texto">Solicitar avaliação estratégica</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
+  <section class="relative py-20 md:py-28 overflow-hidden border-b border-white/5 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white/[0.03] via-transparent to-transparent">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+      <div class="text-left">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-alis-gold/10 border border-alis-gold/30 text-alis-gold text-[11px] font-bold tracking-[0.2em] uppercase mb-6"><i class="w-1.5 h-1.5 rounded-full bg-alis-gold inline-block"></i>Consultoria Estratégica de RH</span>
+        <!-- Textos do hero fixos (sem data-cms) para o CMS não sobrescrever a copy nova -->
+        <h1 class="text-[2rem] sm:text-5xl lg:text-[3.25rem] font-semibold tracking-tight text-white mb-6 leading-[1.15]">Empresas crescem rápido. <span class="bg-gradient-to-r from-[#e8d2a0] via-[#c3a05a] to-[#e8d2a0] bg-clip-text text-transparent italic">A gestão de pessoas costuma ficar para trás.</span></h1>
+        <p class="text-base md:text-lg text-white/75 max-w-xl leading-relaxed">Consultoria de RH estratégico para empresas em crescimento: recrutamento executivo, estruturação de processos e gestão continuada de RH e DP, conduzidos com psicologia organizacional e método.</p>
+        <div class="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a data-cms-href="hero.botao_principal.link" href="#diagnostico" class="btn-gold px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl flex items-center justify-center gap-3"><span>Solicitar Diagnóstico Estratégico</span> <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <a href="#solucoes" class="px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs border border-white/25 text-white hover:border-alis-gold hover:text-alis-gold transition-colors flex items-center justify-center">Conhecer Soluções</a>
+        </div>
       </div>
+      <aside class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm" aria-label="Compromissos operacionais">
+        <p class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] mb-2">Compromissos operacionais</p>
+        <div class="flex items-center gap-4 py-4 ">
+          <p class="text-alis-gold text-2xl md:text-3xl font-bold leading-none w-24 shrink-0">24h</p>
+          <p class="text-white/80 text-sm leading-snug">Briefing individual e alinhamento de perfil</p>
+        </div>
+        <div class="flex items-center gap-4 py-4 border-t border-white/10">
+          <p class="text-alis-gold text-2xl md:text-3xl font-bold leading-none w-24 shrink-0">10 dias úteis</p>
+          <p class="text-white/80 text-sm leading-snug">Shortlist qualificada no recrutamento executivo</p>
+        </div>
+        <div class="flex items-center gap-4 py-4 border-t border-white/10">
+          <p class="text-alis-gold text-2xl md:text-3xl font-bold leading-none w-24 shrink-0">5 dias úteis</p>
+          <p class="text-white/80 text-sm leading-snug">Início operacional do DP parcial</p>
+        </div>
+      </aside>
     </div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[400px] bg-alis-gold/5 rounded-full blur-[100px] md:blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[400px] bg-alis-gold/5 rounded-full blur-[100px] md:blur-[140px] pointer-events-none"></div>
   </section>
 
- <!-- SEÇÃO UNIFICADA: SOBRE A ALIS (ORIGEM + PROPÓSITO + CULTURA RESPONSIVOS) -->
+  <!-- FAIXA DE GARANTIAS E MÉTRICAS (somente fatos já definidos nos planos) -->
+  <section class="sec-light border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 text-center">
+      <div><p class="text-2xl md:text-3xl font-bold" style="color:rgb(139,108,42)">30 a 90 dias</p><p class="text-sm mt-1 text-[#24324d]">de garantia de reposição no recrutamento executivo</p></div>
+      <div><p class="text-2xl md:text-3xl font-bold" style="color:rgb(139,108,42)">Laudo CRP</p><p class="text-sm mt-1 text-[#24324d]">avaliação psicológica nas contratações estratégicas</p></div>
+      <div><p class="text-2xl md:text-3xl font-bold" style="color:rgb(139,108,42)">4 frentes</p><p class="text-sm mt-1 text-[#24324d]">Hunting, Estrutura, Contínua e Outplacement</p></div>
+      <div><p class="text-2xl md:text-3xl font-bold" style="color:rgb(139,108,42)">Poucos clientes</p><p class="text-sm mt-1 text-[#24324d]">por vez, com atenção real em cada projeto</p></div>
+    </div>
+    <!-- LOGOS DE CLIENTES: preencha com marcas que autorizaram a divulgação e remova o atributo "hidden" -->
+    <div hidden class="max-w-7xl mx-auto px-6 pb-10 text-center">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] mb-4" style="color:rgb(139,108,42)">Empresas que confiam na Alis</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-[#24324d] font-semibold">[Logo ou nome do cliente] [Logo ou nome do cliente] [Logo ou nome do cliente]</div>
+    </div>
+  </section>
+
+  <!-- NOSSAS SOLUÇÕES -->
+  <section id="solucoes" class="sec-paper py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
+        <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Nossas soluções</span>
+        <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Quatro frentes para cada momento da empresa</h2>
+        <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="crosshair" class="w-6 h-6"></i></div>
+          <div><h3 class="text-lg font-bold">Alis Hunting</h3><p class="text-alis-gold text-xs font-bold uppercase tracking-wider mt-1">Recrutamento e seleção estratégico e executivo</p></div>
+          <p class="text-white/70 text-sm leading-relaxed flex-1">Hunting ativo, avaliação comportamental, laudo psicológico (CRP) e garantia de reposição.</p>
+          <a href="/planos.html#grupo-rs" class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </article>
+        <article class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="layers" class="w-6 h-6"></i></div>
+          <div><h3 class="text-lg font-bold">Alis Estrutura</h3><p class="text-alis-gold text-xs font-bold uppercase tracking-wider mt-1">Consultoria em gestão de pessoas</p></div>
+          <p class="text-white/70 text-sm leading-relaxed flex-1">Cargos e salários, políticas, avaliação de desempenho, clima e riscos psicossociais.</p>
+          <a href="/planos.html#grupo-estrutura" class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </article>
+        <article class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="repeat" class="w-6 h-6"></i></div>
+          <div><h3 class="text-lg font-bold">Alis Contínua</h3><p class="text-alis-gold text-xs font-bold uppercase tracking-wider mt-1">Gestão continuada de RH e DP</p></div>
+          <p class="text-white/70 text-sm leading-relaxed flex-1">Operação integrada de pessoas: rotinas, folha, rescisões e eSocial.</p>
+          <a href="/planos.html#grupo-gestao" class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </article>
+        <article class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="route" class="w-6 h-6"></i></div>
+          <div><h3 class="text-lg font-bold">Alis Outplacement</h3><p class="text-alis-gold text-xs font-bold uppercase tracking-wider mt-1">Desligamento humanizado</p></div>
+          <p class="text-white/70 text-sm leading-relaxed flex-1">Recolocação individual que preserva a marca empregadora.</p>
+          <a href="/planos.html#grupo-outplacement" class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+<!-- SEÇÃO UNIFICADA: SOBRE A ALIS (ORIGEM + PROPÓSITO + CULTURA RESPONSIVOS) -->
   <section id="sobre" class="sec-light py-16 md:py-24 relative">
     <div class="max-w-5xl mx-auto px-6 space-y-12 md:space-y-16">
+      <div>
+        <div class="text-center mb-8 md:mb-10">
+          <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Diferenciais</span>
+          <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Por que escolher a Alis RH</h2>
+          <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 transition-all duration-300"><div class="w-11 h-11 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-4"><i data-lucide="users" class="w-5 h-5"></i></div><h3 class="font-bold mb-2">Profundidade</h3><p class="text-white/70 text-sm leading-relaxed">Poucos clientes por vez, com atenção real em cada projeto.</p></div>
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 transition-all duration-300"><div class="w-11 h-11 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-4"><i data-lucide="ruler" class="w-5 h-5"></i></div><h3 class="font-bold mb-2">Método e rigor técnico</h3><p class="text-white/70 text-sm leading-relaxed">Decisões validadas por dados e método, nunca por achismo.</p></div>
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 transition-all duration-300"><div class="w-11 h-11 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-4"><i data-lucide="handshake" class="w-5 h-5"></i></div><h3 class="font-bold mb-2">Parceria direta</h3><p class="text-white/70 text-sm leading-relaxed">Comunicação franca com quem lidera, sem meias-verdades.</p></div>
+        </div>
+      </div>
       
       <!-- Parte 1: Origem do Nome Alis -->
       <div>
@@ -254,7 +318,7 @@
           <h2 data-cms="origem.titulo" class="text-2xl md:text-3xl font-bold uppercase tracking-wide">De onde vem o nome Alis</h2>
           <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
         </div>
-        <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-10 hover:border-alis-gold/20 transition-all duration-300">
+        <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-10 hover:border-alis-gold/20 transition-all duration-300">
           <div data-cms="origem.conteudo" class="text-white/80 leading-relaxed text-base md:text-lg space-y-4">
             <p><span class="italic font-bold text-alis-gold">Alis</span> vem do latim e significa asas: elevação, cuidado e crescimento contínuo. O símbolo não é decorativo. Ele descreve o método.</p>
             <p class="text-white/70 text-sm md:text-base">Aves migratórias voam em formação porque cada integrante reduz o esforço de quem vem atrás, permitindo que o conjunto alcance distâncias que nenhuma delas alcançaria isoladamente. É essa lógica que aplicamos à gestão de pessoas: quando o esforço é bem distribuído, a liderança deixa de carregar sozinha o peso do crescimento e passa a guiar a rota.</p>
@@ -269,7 +333,7 @@
           <h2 data-cms="proposito.titulo" class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Por que a Alis RH existe</h2>
         </div>
        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-12">
-  <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+  <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
     <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-6">
       <i data-lucide="target" class="w-6 h-6 text-alis-gold"></i>
     </div>
@@ -278,7 +342,7 @@
       Tirar a gestão de pessoas da informalidade e devolver ao RH o lugar de decisão estratégica dentro do negócio.
     </p>
   </div>
-  <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+  <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
     <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold mb-6">
       <i data-lucide="compass" class="w-6 h-6 text-alis-gold"></i>
     </div>
@@ -289,7 +353,7 @@
   </div>
 </div>
         <!-- Parte 3: Os 5 Ps da Alis -->
-        <div id="cultura" class="bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
+        <div id="cultura" class="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8 hover:border-alis-gold/20 transition-all duration-300">
           <div class="text-center mb-6">
             <h3 data-cms="cultura.titulo" class="text-base font-bold text-alis-gold tracking-widest uppercase italic">Os 5 Ps da Alis</h3>
             <p data-cms="cultura.subtitulo" class="text-white/50 text-xs md:text-sm mt-1">Nossos valores, em uma palavra cada</p>
@@ -322,70 +386,69 @@
     </div>
   </section>
 
-<!-- DEPOIMENTOS / PROVA SOCIAL — fica oculto até haver citações reais. Preencha os 3 cards e REMOVA o atributo "hidden" da section. -->
-<section id="depoimentos" hidden class="py-16 md:py-24 bg-[#0a1325] border-t border-white/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-10 md:mb-14">
-      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Prova social</span>
-      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide text-white">O que dizem as lideranças que contratam com a Alis</h2>
-      <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
+<!-- QUEM CONDUZ: LIDERANÇA E MÉTODO -->
+<section id="quem-conduz" class="sec-paper py-16 md:py-24 border-t border-black/5">
+  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-[300px_1fr] gap-10 md:gap-14 items-center">
+    <!-- Para usar a foto real: troque o bloco "GR" por <img src="/assets/img/gabriela-rabelo.jpg" alt="Gabriela Rabelo, fundadora da Alis RH" class="w-full h-full object-cover"> -->
+    <div class="relative mx-auto w-full max-w-[300px] aspect-[4/5] rounded-2xl overflow-hidden border border-alis-gold/40 shadow-xl bg-gradient-to-br from-[#0f1d38] to-[#0a1325] flex items-center justify-center">
+      <span class="text-alis-gold/80 text-6xl font-bold tracking-widest" style="color:rgba(195,160,90,.85) !important">GR</span>
+      <div class="absolute inset-x-0 bottom-0 bg-[#0a1325]/90 px-4 py-3 text-center">
+        <p class="text-sm font-bold" style="color:#fff !important">Gabriela Rabelo</p>
+        <p class="text-[11px] uppercase tracking-widest" style="color:#e8d2a0 !important">Fundadora e Consultora Principal</p>
+      </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
-        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
-        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
-        <figcaption class="border-t border-white/10 pt-4">
-          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
-          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
-        </figcaption>
-      </figure>
-      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
-        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
-        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
-        <figcaption class="border-t border-white/10 pt-4">
-          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
-          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
-        </figcaption>
-      </figure>
-      <figure class="bg-white/[0.04] border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col gap-6">
-        <i data-lucide="quote" class="w-8 h-8 text-alis-gold"></i>
-        <blockquote class="text-white/90 text-base md:text-lg leading-relaxed italic flex-1">“[Cole aqui a citação real do cliente, com autorização de uso.]”</blockquote>
-        <figcaption class="border-t border-white/10 pt-4">
-          <p class="text-white font-bold text-sm">[Nome], [Cargo]</p>
-          <p class="text-alis-gold text-xs uppercase tracking-widest mt-1">[Empresa · Segmento]</p>
-        </figcaption>
-      </figure>
+    <div>
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Liderança e método</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Quem conduz a sua operação</h2>
+      <div class="w-14 h-[3px] bg-alis-gold mt-4 mb-6 rounded-full"></div>
+      <p class="text-white/80 leading-relaxed mb-4">Gabriela Rabelo é fundadora e consultora principal da Alis RH. Construiu sua trajetória perto de CEOs, fundadores, diretores e lideranças, em consultorias, recrutamento e projetos de RH.</p>
+      <p class="text-white/80 leading-relaxed mb-6">Na Alis, a psicologia organizacional e o rigor técnico orientam cada diagnóstico, cada avaliação comportamental e cada decisão de contratação.</p>
+      <!-- Credenciais (formação e registro profissional): inclua aqui somente o que for comprovado -->
+      <blockquote class="border-l-[3px] border-alis-gold pl-5 py-1 mb-8">
+        <p class="text-lg md:text-xl font-semibold leading-snug" style="color:#0a1325 !important">“Você fala diretamente comigo, do primeiro diagnóstico à decisão final. Atendimento próximo, feito sob medida, sem meias-palavras.”</p>
+        <footer class="text-xs uppercase tracking-widest mt-3 text-alis-gold">Gabriela Rabelo, fundadora da Alis RH</footer>
+      </blockquote>
+      <a href="#diagnostico" class="btn-gold inline-flex items-center gap-3 px-7 py-3.5 rounded-full font-bold uppercase tracking-widest text-xs shadow-lg">Iniciar uma conversa consultiva <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
     </div>
   </div>
 </section>
 
-<!-- ACESSO RÁPIDO: VAGAS, CONTEÚDO E ÁREA DO CLIENTE -->
-<section id="acesso-rapido" class="sec-paper py-16 md:py-24 border-t border-black/5">
+<!-- CASOS DE SUCESSO: oculto até haver depoimentos reais. Preencha os cards (foto/avatar opcional) e REMOVA "hidden". -->
+<section id="depoimentos" hidden class="py-16 md:py-24 bg-[#0a1325] border-t border-white/5">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-10 md:mb-12">
-      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Acesso rápido</span>
-      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Vagas, conteúdo e acompanhamento</h2>
+    <div class="text-center mb-10 md:mb-14">
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Casos de sucesso</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide text-white">O que dizem as lideranças que contratam com a Alis</h2>
       <div class="w-14 h-[3px] bg-alis-gold mx-auto mt-4 rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <a href="/vagas.html" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
-        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
-        <h3 class="text-lg font-bold">Vagas Abertas</h3>
-        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Posições que a Alis está conduzindo no momento, de operacionais a lideranças.</p>
-        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Ver vagas <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-      </a>
-      <a href="/blog.html" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
-        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="book-open" class="w-6 h-6"></i></div>
-        <h3 class="text-lg font-bold">Hub de Conteúdo</h3>
-        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Artigos e análises sobre gestão de pessoas, decisão e psicologia organizacional.</p>
-        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Acessar conteúdos <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-      </a>
-      <button type="button" onclick="abrirAreaCliente()" class="card-link text-left bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col gap-4 block">
-        <div class="w-12 h-12 rounded-2xl bg-alis-gold/10 flex items-center justify-center text-alis-gold"><i data-lucide="layout-dashboard" class="w-6 h-6"></i></div>
-        <h3 class="text-lg font-bold">Área do Cliente</h3>
-        <p class="text-white/70 text-sm md:text-base leading-relaxed flex-1">Acompanhe projetos, relatórios e painéis do seu processo no Asana.</p>
-        <span class="text-alis-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2">Acessar painel <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-      </button>
+      <figure class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-5">
+        <i data-lucide="quote" class="w-7 h-7 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base leading-relaxed italic flex-1">“[Citação real do cliente, com autorização de uso.]”</blockquote>
+        <p class="text-alis-gold text-xs font-bold uppercase tracking-wider">Impacto: [resultado gerado, se houver dado real]</p>
+        <figcaption class="border-t border-white/10 pt-4 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-alis-gold/15 border border-alis-gold/30 shrink-0"></span>
+          <span><span class="block text-white font-bold text-sm">[Nome], [Cargo]</span><span class="block text-white/60 text-xs">[Empresa · Segmento]</span></span>
+        </figcaption>
+      </figure>
+      <figure class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-5">
+        <i data-lucide="quote" class="w-7 h-7 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base leading-relaxed italic flex-1">“[Citação real do cliente, com autorização de uso.]”</blockquote>
+        <p class="text-alis-gold text-xs font-bold uppercase tracking-wider">Impacto: [resultado gerado, se houver dado real]</p>
+        <figcaption class="border-t border-white/10 pt-4 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-alis-gold/15 border border-alis-gold/30 shrink-0"></span>
+          <span><span class="block text-white font-bold text-sm">[Nome], [Cargo]</span><span class="block text-white/60 text-xs">[Empresa · Segmento]</span></span>
+        </figcaption>
+      </figure>
+      <figure class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-5">
+        <i data-lucide="quote" class="w-7 h-7 text-alis-gold"></i>
+        <blockquote class="text-white/90 text-base leading-relaxed italic flex-1">“[Citação real do cliente, com autorização de uso.]”</blockquote>
+        <p class="text-alis-gold text-xs font-bold uppercase tracking-wider">Impacto: [resultado gerado, se houver dado real]</p>
+        <figcaption class="border-t border-white/10 pt-4 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full bg-alis-gold/15 border border-alis-gold/30 shrink-0"></span>
+          <span><span class="block text-white font-bold text-sm">[Nome], [Cargo]</span><span class="block text-white/60 text-xs">[Empresa · Segmento]</span></span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -404,9 +467,9 @@
 <section id="diagnostico" class="py-16 md:py-24 border-t border-white/5 bg-gradient-to-b from-transparent to-black/20">
   <div class="max-w-4xl mx-auto px-6">
     <div class="text-center mb-8 md:mb-12">
-      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Avaliação de compatibilidade</span>
-      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Solicite sua avaliação</h2>
-      <p class="text-white/50 text-xs md:text-sm max-w-xl mx-auto mt-4 leading-relaxed">Antes de propor qualquer solução, avaliamos se este é o momento certo para a sua empresa contar com a Alis.</p>
+      <span class="text-alis-gold text-xs font-bold uppercase tracking-[0.2em] italic block mb-2">Diagnóstico Estratégico de RH</span>
+      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide">Solicite seu diagnóstico</h2>
+      <p class="text-white/50 text-xs md:text-sm max-w-xl mx-auto mt-4 leading-relaxed">Conte um pouco do seu momento. Em uma conversa consultiva, entendemos o cenário da sua empresa e indicamos o melhor caminho.</p>
     </div>
 
     <!-- MENSAGEM DE SUCESSO DA HUBSPOT -->
@@ -626,9 +689,23 @@
 })();
 </script>
   
- <!-- MODAL ÁREA DO CLIENTE -->
+ <!-- BANNER FINAL DE CONVERSÃO -->
+<section class="bg-gradient-to-r from-[#c3a05a] to-[#e8d2a0] text-[#0a1325]">
+  <div class="max-w-7xl mx-auto px-6 py-12 md:py-14 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <div>
+      <h2 class="text-xl md:text-3xl font-bold leading-tight">Sua gestão de pessoas pode acompanhar o ritmo do seu crescimento.</h2>
+      <p class="mt-2 text-sm md:text-base text-[#0a1325]/80">No diagnóstico estratégico, entendemos o momento da sua empresa e indicamos a solução ideal.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
+      <a href="#diagnostico" class="bg-[#0a1325] text-white px-7 py-3.5 rounded-full font-bold uppercase tracking-widest text-xs text-center hover:scale-105 transition-transform">Solicitar Diagnóstico Estratégico</a>
+      <a href="https://wa.me/5531975061698" target="_blank" rel="noopener noreferrer" class="border border-[#0a1325]/40 px-7 py-3.5 rounded-full font-bold uppercase tracking-widest text-xs text-center hover:bg-[#0a1325]/10 transition-colors">Falar com a Gabriela</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL ÁREA DO CLIENTE -->
 <div id="clientModal" role="dialog" aria-modal="true" aria-labelledby="clientModalTitle" onclick="if(event.target===this)fecharAreaCliente()">
-  <div class="bg-[#fffdf8] text-[#0a1325] rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+  <div class="bg-[#fffdf8] text-[#0a1325] rounded-2xl max-w-md w-full p-8 shadow-2xl relative">
     <button type="button" onclick="fecharAreaCliente()" class="absolute top-4 right-4 text-[#0a1325]/50 hover:text-[#0a1325]" aria-label="Fechar">✕</button>
     <div class="w-12 h-12 rounded-2xl bg-alis-gold/20 flex items-center justify-center mb-5"><i data-lucide="layout-dashboard" class="w-6 h-6" style="color:rgb(139,108,42)"></i></div>
     <h2 id="clientModalTitle" class="text-xl font-bold mb-2">Área do Cliente</h2>
@@ -659,12 +736,12 @@
 
       <h4>2. Quais dados coletamos</h4>
       <p>Coletamos dados de duas formas.</p>
-      <p><strong>Dados que você nos envia.</strong> Ao preencher o formulário de avaliação de compatibilidade, você nos informa nome completo, e-mail corporativo, número de WhatsApp, cargo, empresa, faixa de número de colaboradores, os desafios de gestão que enfrenta e, se quiser, uma mensagem livre. Só pedimos o que é necessário para entender sua solicitação e decidir se podemos ajudar.</p>
+      <p><strong>Dados que você nos envia.</strong> Ao preencher o formulário de diagnóstico estratégico, você nos informa nome completo, e-mail corporativo, número de WhatsApp, cargo, empresa, faixa de número de colaboradores, os desafios de gestão que enfrenta e, se quiser, uma mensagem livre. Só pedimos o que é necessário para entender sua solicitação e decidir se podemos ajudar.</p>
       <p><strong>Dados de navegação.</strong> Quando você acessa o site, ferramentas de análise e de relacionamento comercial podem registrar informações como endereço IP, tipo de navegador e dispositivo, páginas visitadas, tempo de permanência e a origem do acesso.</p>
 
       <h4>3. Para que usamos seus dados</h4>
       <ul>
-        <li><strong>Responder à sua solicitação e avaliar a compatibilidade</strong> entre a sua necessidade e os serviços da Alis RH. Base legal: execução de procedimentos preliminares a um possível contrato, a pedido do titular, e consentimento.</li>
+        <li><strong>Responder à sua solicitação e entender a sua necessidade</strong> para indicar os serviços da Alis RH mais adequados. Base legal: execução de procedimentos preliminares a um possível contrato, a pedido do titular, e consentimento.</li>
         <li><strong>Agendar e conduzir a conversa inicial</strong> com você. Base legal: as mesmas do item anterior.</li>
         <li><strong>Manter o histórico do nosso relacionamento comercial</strong> em um sistema de gestão de contatos (CRM), para não pedirmos a mesma informação duas vezes. Base legal: legítimo interesse e consentimento.</li>
         <li><strong>Entender como o site é usado</strong> e melhorar sua comunicação. Base legal: consentimento, quando exigido para cookies não essenciais, e legítimo interesse.</li>
@@ -738,6 +815,7 @@
           <li><a href="/sobre.html" class="hover:text-alis-gold transition-colors">Sobre a Alis</a></li>
           <li><a href="/metodologia.html" class="hover:text-alis-gold transition-colors">Metodologia</a></li>
           <li><a href="/cultura.html" class="hover:text-alis-gold transition-colors">Cultura</a></li>
+          <li><a href="/#solucoes" class="hover:text-alis-gold transition-colors">Soluções</a></li>
           <li><a href="/planos.html" class="hover:text-alis-gold transition-colors">Planos</a></li>
           <li><a href="/vagas.html" class="text-alis-gold hover:underline transition-colors font-bold">Vagas Abertas</a></li>
         </ul>
