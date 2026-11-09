@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Portal do Cliente | Alis RH</title>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/6QQLLFGt/Copia-asinho.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#FAFAF8;color:#0F172A;line-height:1.5;font-size:15px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid #2563EB;outline-offset:2px}.sb :focus-visible{outline-color:#8FB0FF}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:17px;margin:0 0 12px}h3{margin:0;font-size:16px}p{margin:0}
+.mu{color:#64748B}.sub{color:#64748B;margin-bottom:24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.app{display:grid;grid-template-columns:272px minmax(0,1fr);min-height:100vh}
+.sb{background:#091427;color:#0F172A;padding:20px 16px;display:flex;flex-direction:column;gap:20px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:28px;height:28px}
+.brand b{color:#C3A05A;letter-spacing:.22em;font-weight:500;font-size:22px}
+.pt{font-size:12px;font-weight:700;color:#fff;background:#2F66F0;border-radius:6px;padding:2px 8px}
+.emp{border-left:3px solid #2F66F0;padding:4px 0 4px 12px}.emp b{display:block;font-size:17px;color:#fff;line-height:1.3}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;border-radius:8px;padding:11px 12px;color:#B7C4DA;cursor:pointer}
+.nav button:hover{background:#0F2140}
+.nav button[aria-current=page]{background:#12284A;color:#fff;border-left-color:#2F66F0}
+.nav svg{width:18px;height:18px;flex:none}.nav .lk{margin-left:auto;width:14px;height:14px;opacity:.65}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 32px;border-bottom:1px solid #E2E8F0;position:sticky;top:0;background:#fff;z-index:5}
+.live{display:flex;align-items:center;gap:8px;color:#64748B;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:#10B981;animation:p 1.8s infinite}
+@keyframes p{0%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}100%{box-shadow:0 0 0 7px rgba(16,185,129,0)}}
+@media(prefers-reduced-motion:reduce){.dot{animation:none}}
+.user{display:flex;align-items:center;gap:12px}
+.av{width:36px;height:36px;border-radius:50%;background:#091427;color:#8FB0FF;font-weight:700;display:grid;place-items:center;flex:none}
+.pg{padding:28px 32px 56px;max-width:1260px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:8px;border:1px solid #CBD5E1;background:#fff;cursor:pointer;font-weight:500;font-size:14px;text-decoration:none;color:#0F172A}
+.btn:hover{border-color:#2F66F0;background:#F3F6FF}.btn svg{width:16px;height:16px}
+.btn:disabled{opacity:.45;cursor:not-allowed}.btn:disabled:hover{border-color:#CBD5E1;background:#fff}
+.gold{background:#2F66F0;color:#fff;border-color:#2F66F0;font-weight:700}.gold:hover{background:#1F4FC7;border-color:#1F4FC7}
+.gold:disabled:hover{background:#2F66F0;border-color:#2F66F0}
+.ok{border-color:#10B981;color:#047857}.no{border-color:#EF4444;color:#B91C1C}
+.panel{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:20px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 4px 14px rgba(15,23,42,.04)}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px;margin-bottom:20px}
+.tag{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;border:1px solid #CBD5E1;color:#475569;white-space:nowrap}
+.s-ok{border-color:#10B981;color:#047857;background:#ECFDF5}.s-w{border-color:#F59E0B;color:#B45309;background:#FFFBEB}.s-b{border-color:#EF4444;color:#B91C1C;background:#FEF2F2}.s-g{border-color:#2F66F0;color:#1F4FC7;background:#EAF0FF}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:20px}
+.bar label{display:flex;flex-direction:column;gap:2px;font-size:12px;color:#64748B;flex:1 1 320px}
+select.f,input.f,textarea.f{width:100%;min-height:42px;background:#fff;border:1px solid #CBD5E1;border-radius:8px;padding:8px 12px}
+.funnel{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:12px}
+.st{position:relative;padding:14px 8px;border:1px solid #E2E8F0;border-radius:10px;background:#fff;text-align:center;box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.st b{display:block;font-size:28px;line-height:1.1;color:#091427}.st span{font-size:12px;color:#64748B}
+.st.hl{background:#2F66F0;border-color:#2F66F0}.st.hl b,.st.hl span{color:#fff}
+.st:not(:last-child)::after{content:"›";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#1F4FC7;font-size:18px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;margin-top:28px;align-items:start}
+@media(max-width:1100px){.cols{grid-template-columns:1fr}}
+.cand{margin-bottom:16px}.ch{display:flex;gap:14px;align-items:flex-start}
+.cav{width:46px;height:46px;border-radius:50%;background:#091427;color:#8FB0FF;font-weight:700;display:grid;place-items:center;flex:none}
+.res{margin-top:14px;padding:12px 14px;background:#F6EFE2;border-left:3px solid #2F66F0;border-radius:6px;font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tl{border-left:2px solid #CBD5E1;padding:0 0 16px 14px;margin-left:4px}.tl small{color:#1F4FC7;font-weight:700}
+.list>div{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #E2E8F0}
+.list>div:first-child{border-top:0}
+.kpi{font-size:30px;font-weight:700;line-height:1.1;color:#091427}
+.kp{border-top:3px solid var(--c)}
+.ban{background:#091427;color:#fff;border-radius:14px;padding:24px;margin-bottom:20px}
+.ban .s2{color:#B7C4DA}
+.al{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:#12284A;border:1px solid rgba(47,102,240,.4);border-radius:10px;padding:12px 14px;margin-top:12px}
+.nine{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.nine div{border-radius:8px;padding:12px 8px;text-align:center;font-size:12px;min-height:76px;border:1px solid #E2E8F0}
+.nine b{display:block;font-size:22px;color:#091427}
+.pb{height:8px;background:#E2E8F0;border-radius:99px;overflow:hidden;margin-top:6px}.pb i{display:block;height:100%;background:linear-gradient(90deg,#091427,#2563EB)}
+.cols3{display:flex;align-items:flex-end;gap:18px;height:170px;padding-top:10px}
+.cols3 div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%;font-size:12px}
+.cols3 i{display:block;width:100%;max-width:56px;background:#091427;border-radius:6px 6px 0 0}.cols3 div:last-child i{background:#2F66F0}
+.donut{width:150px;height:150px;border-radius:50%;flex:none;-webkit-mask:radial-gradient(circle,transparent 46px,#000 47px);mask:radial-gradient(circle,transparent 46px,#000 47px)}
+.lw{position:relative;min-height:460px}
+.bl{filter:blur(6px);opacity:.6;pointer-events:none;user-select:none;max-height:520px;overflow:hidden}.bl h1,.bl .sub{display:none}
+.lc{position:absolute;left:50%;top:60px;transform:translateX(-50%);width:calc(100% - 32px);max-width:480px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 20px 50px rgba(15,23,42,.2)}
+.lc>svg{width:28px;height:28px;color:#1F4FC7}.lc h2{margin:0}
+label.l{display:block;font-size:13px;color:#64748B;margin:14px 0 4px}
+.ov{display:none;position:fixed;inset:0;z-index:50;background:rgba(9,20,39,.6);align-items:center;justify-content:center;padding:16px}
+.ov.open{display:flex}
+.md{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px;width:100%;max-width:520px;max-height:90vh;overflow:auto}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#2F66F0;color:#091427;font-weight:700;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:92vw}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.note{margin-top:32px;font-size:13px;color:#64748B}
+@media(max-width:860px){.app{grid-template-columns:1fr}.sb{position:static;height:auto}.nav{flex-direction:row;overflow-x:auto}.nav button{width:auto;white-space:nowrap;border-left:0;border-bottom:3px solid transparent}.nav button[aria-current=page]{border-bottom-color:#2F66F0}.top,.pg{padding-left:16px;padding-right:16px}.top{position:static}.st::after{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sb">
+  <div class="brand"><img src="https://i.postimg.cc/6QQLLFGt/Copia-asinho.png" alt="" onerror="this.remove()"><b>ALIS</b><span class="pt">Portal</span></div>
+  <div class="emp"><b>TechCorp Brasil Ltda</b></div>
+  <nav class="nav" id="nav" aria-label="Módulos"></nav>
+</aside>
+<div>
+  <header class="top">
+    <div class="live"><span class="dot"></span>Sincronização em tempo real</div>
+    <div class="user"><span class="av">RA</span><span>Roberto Alves <span class="mu">(Diretor de RH)</span></span><a class="btn" href="index.html">Sair</a></div>
+  </header>
+  <main class="pg" id="view"></main>
+</div>
+</div>
+<div class="ov" id="ov" role="dialog" aria-modal="true"><div class="md" id="mc"></div></div>
+<div id="toast" role="status"></div>
+<script>
+(function(){
+// Dados fictícios de demonstração. Em produção, virão de um back-end autenticado.
+var $=function(s){return document.querySelector(s)};
+var E=function(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var ico=function(){window.lucide&&lucide.createIcons()};
+var toast=function(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove('show')},3000)};
+var hora=function(){var d=new Date();return 'Hoje às '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)};
+var abrir=function(h){$('#mc').innerHTML=h;$('#ov').classList.add('open');ico();var f=$('#mc').querySelector('select,input,textarea,button');if(f)f.focus()};
+var fechar=function(){$('#ov').classList.remove('open')};
+var C=function(a,b,c,d){return[['Comunicação técnica',a],['Resolução de problemas',b],['Colaboração',c],['Aderência à cultura',d]]};
+var VAGAS=[
+{id:'dev',t:'Desenvolvedor Fullstack Senior',loc:'SP / Remoto',st:'Processo Ativo',tom:'s-ok',ini:'01/11/2026',f:[500,200,10,7,3,3,1],
+ev:[['Hoje às 14:30','3 candidatos enviados para a shortlist, aguardando a sua validação.'],['Ontem às 16:45','7 testes técnicos concluídos e validados pelo especialista.'],['05/11 às 11:20','10 candidatos avaliados em entrevista com a consultora.'],['03/11 às 09:00','200 perfis em triagem após a divulgação da vaga.'],['01/11 às 09:00','Processo iniciado com o perfil ideal alinhado com a sua empresa.']],
+c:[{id:'c1',n:'João Silva',m:95,p:'R$ 14.000',tg:['Executor','Planejador'],r:'Profissional com vivência sólida em React, Node.js e microserviços. Excelente comunicação técnica na entrevista e forte alinhamento com a cultura da empresa.',k:C(94,96,90,95),s:'novo'},
+{id:'c2',n:'Marina Costa',m:91,p:'R$ 13.500',tg:['Comunicadora','Analítica'],r:'Trajetória em produtos de alto volume, com foco em qualidade e boas práticas de arquitetura. Perfil colaborativo, com facilidade para mentorar o time.',k:C(90,92,94,88),s:'novo'},
+{id:'c3',n:'Rafael Nogueira',m:88,p:'R$ 15.000',tg:['Estrategista','Mentor'],r:'Experiência ampla em liderança técnica e decisões de arquitetura. Perfil mais sênior, com pretensão acima da faixa definida.',k:C(86,93,87,84),s:'novo'}]},
+{id:'ops',t:'Gerente de Operações',loc:'BH / Híbrido',st:'Em Triagem',tom:'s-w',ini:'20/10/2026',f:[140,60,4,0,0,0,0],
+ev:[['06/11 às 15:10','4 candidatos em entrevista com a consultora.'],['28/10 às 10:00','60 perfis aprovados na triagem inicial.'],['20/10 às 09:00','Processo iniciado com o perfil ideal alinhado com a sua empresa.']],c:[]}];
+var cur='dev';
+var LAB=['Inscritos','Em triagem','Entrevista Alis','Em teste','Shortlist Alis','Entr. empresa','Contratado'];
+var MODS=[['home','layout-dashboard','Visão Geral'],['vagas','target','Vagas & Pipeline'],['dp','users','Gestão de DP & Operação'],['clima','gauge','Clima & Desempenho (9-Box)'],['analytics','line-chart','People Analytics'],['fin','file-text','Financeiro & Contratos'],['sup','headset','Suporte & Atendimento'],['cfg','settings','Configurações']];
+var TICKETS=[['TK-2026-014','Ajuste de faixa salarial da vaga de Fullstack','Em andamento']];
+var vaga=function(){return VAGAS.filter(function(v){return v.id===cur})[0]};
+var cand=function(id){return vaga().c.filter(function(c){return c.id===id})[0]};
+var evento=function(t){vaga().ev.unshift([hora(),t]);show('vagas')};
+var tag=function(c,t){return '<span class="tag '+c+'">'+t+'</span>'};
+
+function cartao(c){
+ var ini=c.n.split(' ').map(function(p){return p[0]}).slice(0,2).join('');
+ var est={ok:tag('s-ok','Aprovado para entrevista na empresa'),teste:tag('s-w','Teste complementar solicitado'),no:tag('s-b','Reprovado: '+E(c.mot)),hire:tag('s-ok','Contratação confirmada')}[c.s]||'';
+ var a=function(k,i,l,cl,d){return '<button class="btn '+(cl||'')+'" data-a="'+k+'" data-id="'+c.id+'"'+(d?' disabled title="Disponível após aprovar para entrevista"':'')+'><i data-lucide="'+i+'"></i>'+l+'</button>'};
+ var fin=c.s==='hire'?'':(c.s==='no'?a('undo','undo-2','Reabrir decisão'):a('ok','check','Aprovar p/ entrevista empresa','ok')+(c.s==='teste'?'':a('teste','flask-conical','Solicitar teste complementar'))+a('no','x','Reprovar','no'));
+ return '<article class="panel cand"><div class="ch"><span class="cav">'+ini+'</span><div style="flex:1;min-width:0"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px"><h3>'+E(c.n)+'</h3>'+tag('s-g','Match '+c.m+'%')+'</div><p class="mu">Pretensão salarial: <b style="color:#0F172A">'+E(c.p)+'</b></p></div></div>'+
+ '<div class="row">'+c.tg.map(function(t){return tag('',E(t))}).join('')+est+'</div><div class="res"><b style="color:#1F4FC7">Resumo Alis RH</b><br>'+E(c.r)+'</div>'+
+ '<div class="row">'+a('cv','file-text','Ver currículo higienizado')+a('laudo','clipboard-list','Ver laudo técnico (CRP)')+fin+a('hire','party-popper','Confirmar contratação','gold',c.s!=='ok')+'</div></article>';
+}
+var M={
+vagas:function(){var v=vaga(),pend=v.c.filter(function(c){return c.s==='novo'}).length;
+ return '<h1>Vagas & Pipeline</h1><p class="sub">Acompanhe cada etapa do processo e valide a shortlist.</p>'+
+ '<div class="panel bar"><label>Vaga selecionada<select class="f" id="sv">'+VAGAS.map(function(x){return '<option value="'+x.id+'"'+(x.id===cur?' selected':'')+'>'+x.t+' ('+x.loc+')</option>'}).join('')+'</select></label>'+tag(v.tom,v.st)+'<span class="mu">Início: '+v.ini+'</span></div>'+
+ '<div class="funnel">'+v.f.map(function(n,i){return '<div class="st'+(i===4?' hl':'')+'"><b>'+n+'</b><span>'+LAB[i]+'</span></div>'}).join('')+'</div>'+
+ '<div class="cols"><section><h2>Shortlist Alis '+tag(pend?'s-w':'',pend+(pend===1?' aguarda decisão':' aguardam decisão'))+'</h2><p class="mu" style="margin-bottom:16px">Você vê apenas candidatos liberados pela Alis. E-mail, telefone e LinkedIn ficam protegidos (LGPD).</p>'+
+ (v.c.length?v.c.map(cartao).join(''):'<div class="panel"><h3>A shortlist ainda não foi liberada</h3><p class="mu">Os candidatos aparecem aqui quando as entrevistas e os testes forem concluídos.</p></div>')+'</section>'+
+ '<div class="panel"><h2>Atividade do processo</h2>'+v.ev.map(function(e){return '<div class="tl"><small>'+E(e[0])+'</small><p>'+E(e[1])+'</p></div>'}).join('')+'</div></div>'},
+dp:function(){var K=[['2','Admissões em andamento'],['5','Documentos pendentes'],['3','Férias a vencer em 60 dias'],['8 de 9','Obrigações do mês entregues']];
+ var R=[['Admissão: Ana Souza (Analista de QA)','Documentos admissionais em conferência','s-w','Em andamento'],['Férias de dezembro (3 colaboradores)','Programação aprovada pela diretoria','s-ok','Aprovado'],['Reajuste da convenção coletiva','Impacto na folha em análise','s-w','Em análise'],['Desligamento: processo 114','Termo aguardando assinatura','s-b','Pendente com a empresa'],['Fechamento da folha de novembro','Prazo: 28/11/2026','s-ok','No prazo']];
+ return '<h1>Gestão de DP & Operação</h1><p class="sub">Rotinas de pessoas conduzidas pela Alis, com status em tempo real.</p><div class="g2" style="margin-bottom:20px">'+K.map(function(k){return '<div class="panel"><div class="kpi">'+k[0]+'</div><p class="mu">'+k[1]+'</p></div>'}).join('')+'</div><div class="panel list"><h2>Solicitações e rotinas</h2>'+R.map(function(r){return '<div><div><b>'+r[0]+'</b><p class="mu">'+r[1]+'</p></div>'+tag(r[2],r[3])+'</div>'}).join('')+'</div>'},
+clima:function(){var L=[['Enigma','Potencial em crescimento','Estrela'],['Dilema','Profissional-chave','Alto desempenho'],['Risco','Eficaz','Especialista']],N=[[2,5,4],[3,12,6],[1,4,3]];
+ var P=[['Ana Souza','Liderança de squad',70],['Carlos Lima','Gestão de conflitos',45],['Beatriz Rocha','Visão de negócio',85],['Diego Alves','Comunicação executiva',30]];
+ var D=[['Reconhecimento',82],['Comunicação com a liderança',74],['Carga de trabalho',66]];
+ return '<h1>Clima & Desempenho</h1><p class="sub">Matriz 9-Box e planos de desenvolvimento individual (PDI).</p><div class="g2"><div class="panel"><h2>Matriz 9-Box</h2><div class="nine">'+L.map(function(r,i){return r.map(function(l,j){var n=N[i][j];return '<div style="background:rgba(47,102,240,'+(0.08+n/12*.5).toFixed(2)+')"><b>'+n+'</b>'+l+'</div>'}).join('')}).join('')+'</div><p class="mu" style="margin-top:10px;font-size:13px">Vertical: potencial. Horizontal: desempenho.</p></div>'+
+ '<div class="panel"><h2>Clima organizacional</h2><div class="kpi">7,8<span class="mu" style="font-size:16px"> / 10</span></div>'+D.map(function(d){return '<p style="margin-top:12px;display:flex;justify-content:space-between"><span>'+d[0]+'</span><b>'+d[1]+'%</b></p><div class="pb"><i style="width:'+d[1]+'%"></i></div>'}).join('')+'</div></div>'+
+ '<div class="panel" style="margin-top:16px"><h2>PDI em andamento</h2>'+P.map(function(p){return '<div style="margin-bottom:14px"><p style="display:flex;justify-content:space-between"><span><b>'+p[0]+'</b> · <span class="mu">'+p[1]+'</span></span><b>'+p[2]+'%</b></p><div class="pb"><i style="width:'+p[2]+'%"></i></div></div>'}).join('')+'</div>'},
+analytics:function(){var T=[['T1',9],['T2',8],['T3',6.5],['T4',5.8]],F=[['Tecnologia',34],['Operações',41],['Comercial',28]],Pf=PF,a=0;
+ var g=Pf.map(function(p){var s=a;a+=p[1];return p[2]+' '+s+'% '+a+'%'}).join(',');
+ return '<h1>People Analytics</h1><p class="sub">Indicadores de pessoas consolidados pela Alis.</p><div class="g2"><div class="panel"><h2>Turnover estimado (% ao trimestre)</h2><div class="cols3">'+T.map(function(t){return '<div><b>'+t[1]+'%</b><i style="height:'+t[1]*14+'px"></i>'+t[0]+'</div>'}).join('')+'</div></div>'+
+ '<div class="panel"><h2>Tempo médio de fechamento (dias)</h2>'+F.map(function(f){return '<p style="margin-top:12px;display:flex;justify-content:space-between"><span>'+f[0]+'</span><b>'+f[1]+'</b></p><div class="pb"><i style="width:'+f[1]/50*100+'%"></i></div>'}).join('')+'</div>'+
+ '<div class="panel"><h2>Perfil comportamental</h2><div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center"><div class="donut" role="img" aria-label="Distribuição de perfis" style="background:conic-gradient('+g+')"></div><div>'+Pf.map(function(p){return '<p><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:'+p[2]+';margin-right:8px"></span>'+p[0]+' <b>'+p[1]+'%</b></p>'}).join('')+'</div></div></div></div>'},
+fin:function(){var K=[['Contrato 01','Recrutamento e seleção','Ativo desde 01/09/2026'],['Aditivo 02','Estruturação de RH','Ativo desde 15/10/2026']],F=[['0013','Nov/2026','Vence 10/11/2026','s-w','Em aberto'],['0012','Out/2026','Pago em 08/10','s-ok','Pago'],['0011','Set/2026','Pago em 09/09','s-ok','Pago']];
+ return '<h1>Financeiro & Contratos</h1><p class="sub">Contratos vigentes, aditivos e faturas.</p><div class="g2" style="margin-bottom:20px">'+K.map(function(k){return '<div class="panel"><p class="mu">'+k[0]+'</p><h3>'+k[1]+'</h3><p class="mu" style="margin:6px 0 12px">'+k[2]+'</p><button class="btn" data-demo="'+k[0]+' (PDF)"><i data-lucide="download"></i>Baixar PDF</button></div>'}).join('')+'</div><div class="panel list"><h2>Faturas</h2>'+F.map(function(f){return '<div><div><b>Fatura nº '+f[0]+' · '+f[1]+'</b><p class="mu">R$ 1.500,00 · '+f[2]+'</p></div><div class="row" style="margin:0;align-items:center">'+tag(f[3],f[4])+'<button class="btn" data-demo="fatura '+f[0]+' (PDF)"><i data-lucide="download"></i>Baixar PDF</button>'+(f[3]==='s-ok'?'':'<button class="btn gold" data-demo="boleto da fatura '+f[0]+' (2ª via)"><i data-lucide="receipt"></i>Emitir 2ª via de boleto</button>')+'</div></div>'}).join('')+'</div>'},
+sup:function(){return '<h1>Suporte & Atendimento</h1><p class="sub">Fale direto com a sua consultora.</p><div class="panel row" style="margin:0 0 20px"><a class="btn gold" target="_blank" rel="noopener" href="https://wa.me/5531975061698?text=Ol%C3%A1%2C%20Gabriela!%20Sou%20do%20Portal%20do%20Cliente."><i data-lucide="message-circle"></i>Falar com a Gabriela Rabelo no WhatsApp</a><button class="btn" data-a="ticket"><i data-lucide="ticket"></i>Abrir ticket consultivo</button></div><div class="panel list"><h2>Seus tickets</h2>'+TICKETS.map(function(t){return '<div><div><b>'+E(t[0])+'</b><p class="mu">'+E(t[1])+'</p></div>'+tag(t[2]==='Aberto'?'s-w':'s-g',t[2])+'</div>'}).join('')+'</div>'},
+cfg:function(){return '<h1>Configurações</h1><p class="sub">Dados de contato e senha do gestor.</p><form class="panel" id="fc" style="max-width:560px" novalidate><label class="l" for="tel" style="margin-top:0">Telefone</label><input class="f" id="tel" value="(11) 98888-7766" autocomplete="tel"><label class="l" for="em">E-mail de contato</label><input class="f" id="em" type="email" value="roberto.alves@techcorp.com.br" autocomplete="email"><label class="l" for="p1">Senha atual</label><input class="f" id="p1" type="password" autocomplete="current-password"><label class="l" for="p2">Nova senha (mínimo de 8 caracteres)</label><input class="f" id="p2" type="password" autocomplete="new-password"><label class="l" for="p3">Confirmar nova senha</label><input class="f" id="p3" type="password" autocomplete="new-password"><p id="err" class="no" style="border:0;margin-top:12px;min-height:22px" role="alert"></p><button class="btn gold" type="submit" style="margin-top:8px">Salvar alterações</button></form>'}
+};
+var PF=[['Executor',34,'#091427'],['Planejador',26,'#2F66F0'],['Comunicador',22,'#2563EB'],['Analítico',18,'#8B5CF6']];
+var LOCK={dp:1,clima:1,analytics:1},REQ={};
+function linhas(){var D=['01/11','02/11','03/11','04/11','05/11','06/11','07/11'],S=[['Inscritos','#2563EB',[40,110,220,315,395,455,500]],['Em triagem','#8B5CF6',[0,30,120,200,200,200,200]],['Entrevista e teste','#10B981',[0,0,0,4,10,14,17]]],W=600,H=220,L=36,x=function(i){return L+i*(W-L-10)/6},y=function(v){return H-26-v/500*(H-36)};
+ var g=[0,250,500].map(function(v){return '<line x1="'+L+'" x2="'+(W-10)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#E2E8F0"/><text x="0" y="'+(y(v)+4)+'" font-size="11" fill="#64748B">'+v+'</text>'}).join('');
+ var l=S.map(function(s){return '<polyline fill="none" stroke="'+s[1]+'" stroke-width="2.5" stroke-linejoin="round" points="'+s[2].map(function(v,i){return x(i)+','+y(v)}).join(' ')+'"/>'}).join('');
+ var t=D.map(function(d,i){return '<text x="'+x(i)+'" y="'+(H-6)+'" font-size="11" fill="#64748B" text-anchor="middle">'+d+'</text>'}).join('');
+ return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto" role="img" aria-label="Evolução do recrutamento em novembro">'+g+l+t+'</svg><p style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px;margin-top:8px">'+S.map(function(s){return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:'+s[1]+';margin-right:6px"></span>'+s[0]+'</span>'}).join('')+'</p>'}
+M.home=function(){var d=VAGAS[0],pend=d.c.filter(function(c){return c.s==='novo'}).length,sl=0,h=new Date().getHours(),a=0;
+ VAGAS.forEach(function(v){sl+=v.c.filter(function(c){return c.s!=='no'}).length});
+ var al=function(t,m,l,cl){return '<div class="al"><p>'+t+'</p><button class="btn '+cl+'" data-m="'+m+'">'+l+'</button></div>'};
+ var K=[['Vagas ativas',VAGAS.length,'#2563EB'],['Candidatos em shortlist',sl,'#2F66F0'],['SLA médio','14 dias','#8B5CF6'],['Faturas em aberto',1,'#F59E0B']];
+ var g=PF.map(function(p){var s=a;a+=p[1];return p[2]+' '+s+'% '+a+'%'}).join(',');
+ return '<section class="ban"><h1>'+(h<12?'Bom dia':h<18?'Boa tarde':'Boa noite')+', Roberto</h1><p class="s2">Veja o que precisa da sua decisão hoje.</p>'+
+ (pend?al('<b>Você tem '+pend+(pend===1?' candidato':' candidatos')+' na Shortlist</b> aguardando sua validação em '+E(d.t)+'.','vagas','Validar shortlist','gold'):'<div class="al"><p>Nenhuma decisão pendente na shortlist.</p></div>')+
+ al('<b>1 documento admissional</b> pendente de aprovação em DP.','dp','Ver detalhes','')+'</section>'+
+ '<div class="g4">'+K.map(function(k){return '<div class="panel kp" style="--c:'+k[2]+'"><p class="mu">'+k[0]+'</p><div class="kpi">'+k[1]+'</div></div>'}).join('')+'</div>'+
+ '<div class="g2" style="grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))"><div class="panel"><h2>Evolução do recrutamento em novembro</h2>'+linhas()+'</div>'+
+ '<div class="panel"><h2>Perfil comportamental do time</h2><div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center"><div class="donut" role="img" aria-label="Distribuição de perfis" style="background:conic-gradient('+g+')"></div><div>'+PF.map(function(p){return '<p><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:'+p[2]+';margin-right:8px"></span>'+p[0]+' <b>'+p[1]+'%</b></p>'}).join('')+'</div></div></div></div>'};
+function locked(k){var n=MODS.filter(function(m){return m[0]===k})[0][2];
+ return '<h1>'+n+'</h1><p class="sub">Módulo não contratado. A visualização abaixo é apenas um exemplo.</p><div class="lw"><div class="bl" aria-hidden="true" inert>'+M[k]()+'</div><div class="panel lc"><i data-lucide="lock"></i><h2>Este módulo faz parte do plano <b>Alis Estrutura &amp; DP</b></h2><p class="mu">Desbloqueie a gestão de 9-box, clima e analytics para a sua empresa.</p><button class="btn gold" data-a="ativar" data-k="'+k+'"'+(REQ[k]?' disabled':'')+'>'+(REQ[k]?'Solicitação enviada':'Solicitar ativação de módulo')+'</button></div></div>'}
+function show(k){
+ document.querySelectorAll('#nav button').forEach(function(b){b.toggleAttribute('aria-current',b.dataset.m===k);if(b.dataset.m===k)b.setAttribute('aria-current','page')});
+ $('#view').innerHTML=(LOCK[k]?locked(k):M[k]())+'<p class="note">Dados fictícios de demonstração. Em produção, o portal carrega as informações de um ambiente autenticado.</p>';
+ $('#view').dataset.k=k;ico();
+}
+$('#nav').innerHTML=MODS.map(function(m){var l=LOCK[m[0]];return '<button data-m="'+m[0]+'"><i data-lucide="'+m[1]+'"></i>'+m[2]+(l?'<i class="lk" data-lucide="lock"></i><span class="sr">(não contratado)</span>':'')+'</button>'}).join('');
+document.addEventListener('click',function(e){
+ var n=e.target.closest('[data-m]');if(n){show(n.dataset.m);window.scrollTo(0,0);return}
+ if(e.target===$('#ov')||e.target.closest('[data-x]'))return fechar();
+ var d=e.target.closest('[data-demo]');if(d)return toast('Demonstração: aqui seria baixado o arquivo "'+d.dataset.demo+'".');
+ var b=e.target.closest('[data-a]');if(!b)return;var k=b.dataset.a,c=b.dataset.id?cand(b.dataset.id):null;
+ if(k==='ativar'){var kk=b.dataset.k;REQ[kk]=1;TICKETS.unshift(['TK-2026-0'+(15+TICKETS.length),'Ativação do módulo '+MODS.filter(function(m){return m[0]===kk})[0][2],'Aberto']);show(kk);return toast('Solicitação enviada. A Gabriela entra em contato.')}
+ if(k==='cv')return abrir('<h3>Currículo higienizado</h3><p class="mu" style="margin:4px 0 14px">'+E(c.n)+' · dados de contato removidos pela Alis (LGPD)</p><div class="res" style="margin-top:0">Formação, experiências, tecnologias e conquistas aparecem aqui em PDF, sem e-mail, telefone ou LinkedIn.</div><button class="btn" data-x style="margin-top:16px;width:100%">Fechar</button>');
+ if(k==='laudo')return abrir('<h3>Laudo técnico (CRP)</h3><p class="mu" style="margin:4px 0 14px">'+E(c.n)+' · Match '+c.m+'% · '+E(c.tg.join(', '))+'</p>'+c.k.map(function(x){return '<p style="display:flex;justify-content:space-between;margin-top:12px"><span>'+x[0]+'</span><b>'+x[1]+'</b></p><div class="pb"><i style="width:'+x[1]+'%"></i></div>'}).join('')+'<div class="res">'+E(c.r)+'</div><button class="btn" data-x style="margin-top:16px;width:100%">Fechar</button>');
+ if(k==='ok'){c.s='ok';return evento('Você aprovou '+c.n+' para entrevista com a empresa.')}
+ if(k==='teste'){c.s='teste';toast('Pedido enviado à Alis.');return evento('Você solicitou teste complementar para '+c.n+'.')}
+ if(k==='undo'){c.s='novo';return evento('Você reabriu a decisão sobre '+c.n+'.')}
+ if(k==='hire'){c.s='hire';var v=vaga();v.f[6]=1;v.st='Contratação confirmada';v.tom='s-ok';toast(c.n+': contratação confirmada.');return evento('Você confirmou a contratação de '+c.n+'.')}
+ if(k==='no')return abrir('<h3>Reprovar '+E(c.n)+'</h3><p class="mu" style="margin:4px 0 14px">O motivo ajuda a Alis a ajustar a busca.</p><label class="l" for="mot" style="margin-top:0">Motivo</label><select class="f" id="mot"><option>Perfil técnico</option><option>Pretensão salarial</option><option>Nível de experiência</option><option>Aderência à cultura</option><option>Outro motivo</option></select><div class="row"><button class="btn" data-x style="flex:1">Cancelar</button><button class="btn no" data-a="conf" data-id="'+c.id+'" style="flex:1">Confirmar reprovação</button></div>');
+ if(k==='conf'){c.s='no';c.mot=$('#mot').value;fechar();toast('Reprovação registrada.');return evento('Você reprovou '+c.n+' ('+c.mot+').')}
+ if(k==='ticket')return abrir('<h3>Abrir ticket consultivo</h3><form id="ft" novalidate><label class="l" for="ta">Assunto</label><select class="f" id="ta"><option>Vaga em andamento</option><option>Contrato e financeiro</option><option>Apoio consultivo</option><option>Outro assunto</option></select><label class="l" for="tm">Mensagem</label><textarea class="f" id="tm" rows="4"></textarea><p id="te" class="no" style="border:0;min-height:22px" role="alert"></p><div class="row"><button type="button" class="btn" data-x style="flex:1">Cancelar</button><button class="btn gold" type="submit" style="flex:1">Enviar ticket</button></div></form>');
+});
+document.addEventListener('change',function(e){if(e.target.id==='sv'){cur=e.target.value;show('vagas')}});
+document.addEventListener('submit',function(e){e.preventDefault();
+ if(e.target.id==='ft'){var m=$('#tm').value.trim();if(m.length<10)return $('#te').textContent='Descreva a solicitação em pelo menos 10 caracteres.';TICKETS.unshift(['TK-2026-0'+(15+TICKETS.length),$('#ta').value+': '+m.slice(0,60),'Aberto']);fechar();show('sup');return toast('Ticket aberto. A Alis responde por aqui.')}
+ if(e.target.id==='fc'){var er=$('#err'),p1=$('#p1').value,p2=$('#p2').value;
+  if(!/^\S+@\S+\.\S+$/.test($('#em').value))return er.textContent='Informe um e-mail válido.';
+  if($('#tel').value.replace(/\D/g,'').length<10)return er.textContent='Informe um telefone com DDD.';
+  if(p1||p2||$('#p3').value){if(!p1)return er.textContent='Informe a senha atual para trocar a senha.';if(p2.length<8)return er.textContent='A nova senha precisa ter pelo menos 8 caracteres.';if(p2!==$('#p3').value)return er.textContent='A confirmação não confere com a nova senha.'}
+  er.textContent='';['p1','p2','p3'].forEach(function(i){$('#'+i).value=''});toast('Alterações salvas.')}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')fechar()});
+show('home');
+})();
+</script>
+</body>
+</html>
