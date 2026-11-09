@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos e Serviços | Alis RH</title>
+  <meta name="description" content="Modelos de contratação da Alis RH: R&S Estratégico, Projetos de Estruturação, Gestão Continuada de RH e DP e Outplacement.">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/6QQLLFGt/Copia-asinho.png">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'alis-dark': '#091427',
+            'alis-gold': '#2f66f0',
+            'alis-gold-light': '#8fb0ff',
+            'alis-gold-deep': '#1f4fc7',
+            'alis-cream': 'rgb(243, 233, 216)',
+            'alis-paper': '#fffdf8'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background-color: #fcfbf8; color: #091427; }
+
+    :focus-visible { outline: 2px solid #1f4fc7; outline-offset: 2px; }
+    header :focus-visible, footer :focus-visible, #mobile-menu :focus-visible, .on-dark:focus-visible { outline-color: #8fb0ff; }
+
+    .btn-gold {
+      background: #2f66f0;
+      background-size: 200% 200%;
+      transition: background-position 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      color: #ffffff !important;
+    }
+    .btn-gold:hover { background-position: 100% 100%; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(47,102,240, 0.4); }
+
+    .btn-dark { background: #091427; color: #fffdf8 !important; transition: background-color 0.2s ease, transform 0.2s ease; }
+    .btn-dark:hover { background: #12213d; transform: translateY(-1px); }
+
+    #whatsapp-btn {
+      position: fixed; bottom: 20px; right: 20px; width: 54px; height: 54px;
+      background-color: #25D366; color: #FFFFFF; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); z-index: 90;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none;
+    }
+    @media (min-width: 768px) { #whatsapp-btn { bottom: 24px; right: 24px; width: 60px; height: 60px; } }
+    #whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+    .modal-panel { animation: modalIn 0.2s ease-out; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .modal-panel { animation: none; }
+      .btn-gold, .btn-dark, #whatsapp-btn, #mobile-menu { transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  
+    /* Estilos de Formulário para o Modal */
+    .f-label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; tracking: 0.05em; color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; }
+    .f-input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: white; outline: none; transition: all 0.2s ease; }
+    .f-input:focus { border-color: #2f66f0; box-shadow: 0 0 0 2px rgba(47, 102, 240, 0.2); }
+    .f-check { display: flex; items-center: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer; }
+    .custom-checkbox-form { accent-color: #2f66f0; width: 1.125rem; height: 1.125rem; cursor: pointer; }
+    .erro-campo { font-size: 0.75rem; color: #ef4444; margin-top: 0.25rem; }
+
+    /* Tema Premium */
+    body { background-color:#fcfbf8; }
+    .sec-paper { background-color:#fcfbf8; }
+    .sec-paper h1 { color:#0a1325 !important; }
+    .sec-light [class*="border-white"], .sec-paper [class*="border-white"] { border-color: rgba(10,19,37,.14) !important; }
+    .sec-light [class*="divide-white"] > * + *, .sec-paper [class*="divide-white"] > * + * { border-color: rgba(10,19,37,.12) !important; }
+    .btn-gold { background:linear-gradient(135deg,#2f66f0,#1f4fc7) !important; color:#fff !important; box-shadow:0 6px 16px rgba(47,102,240,.25); }
+    .btn-gold:hover { box-shadow:0 10px 24px rgba(47,102,240,.38); transform:translateY(-1px); }
+    header .text-alis-gold, #mobile-menu .text-alis-gold, footer.border-t .text-alis-gold, #diagnostico .text-alis-gold { color:#8fb0ff; }
+    .chip.active { background:#2f66f0; border-color:#2f66f0; }
+    .keep-center, .keep-center p, .keep-center h2 { text-align:center !important; }
+    h2[id] { scroll-margin-top: 96px; }
+  </style>
+  <style>
+    .sec-light [class*="bg-white/["], .sec-paper [class*="bg-white/["] { background:#ffffff !important; border-color:#e5e7eb !important; box-shadow:0 1px 2px rgba(10,19,37,.04), 0 8px 20px rgba(10,19,37,.06); }
+    .sec-paper aside[aria-label="Nosso ritmo de entrega"] { background:#ffffff !important; border-color:#e5e7eb !important; box-shadow:0 10px 25px rgba(0,0,0,0.04) !important; }
+    .sec-paper [class*="bg-alis-dark"] [class*="text-alis-gold"], .sec-paper [class*="bg-[#0a1325]"] [class*="text-alis-gold"], .sec-light [class*="bg-alis-dark"] [class*="text-alis-gold"], .sec-light [class*="bg-[#0a1325]"] [class*="text-alis-gold"] { color:#8fb0ff !important; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-alis-gold selection:text-alis-dark">
+
+  <!-- CABEÇALHO PADRONIZADO -->
+  <header class="sticky top-0 z-50 bg-[#091427]/95 backdrop-blur-md border-b border-white/10 px-4 md:px-12 py-3">
+    <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between gap-4 md:gap-8">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center shrink-0" id="site-logo-container">
+        <img id="site-logo-header" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-9 md:h-11 w-auto object-contain">
+      </a>
+
+      <!-- Navegação Desktop -->
+      <div class="hidden lg:flex items-center gap-8 ml-auto">
+        <nav class="flex items-center gap-6 xl:gap-8 text-sm xl:text-base font-bold text-white tracking-wide" aria-label="Navegação principal">
+          <a href="/" class="hover:text-alis-gold transition-colors whitespace-nowrap">Início</a>
+          <a href="/sobre.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Sobre a Alis</a>
+          <a href="/metodologia.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Metodologia</a>
+          <a href="/planos.html" aria-current="page" class="text-alis-gold transition-colors whitespace-nowrap">Planos</a>
+          <a href="/vagas.html" class="hover:text-alis-gold transition-colors flex items-center gap-2 whitespace-nowrap">
+            <i data-lucide="briefcase" class="w-4 h-4 text-alis-gold"></i> Vagas Abertas
+          </a>
+          <a href="/blog.html" class="hover:text-alis-gold transition-colors whitespace-nowrap">Conteúdo</a>
+        </nav>
+
+        <!-- Ações -->
+        <div class="flex items-center gap-4 border-l border-white/10 pl-6 shrink-0">
+          <a href="/cliente.html" class="px-5 py-2.5 rounded-full border border-alis-gold text-alis-gold hover:bg-alis-gold hover:text-alis-dark font-bold text-xs tracking-wide transition-colors whitespace-nowrap flex items-center gap-2">
+            <i data-lucide="user-round" class="w-3.5 h-3.5"></i> Portal do Cliente
+          </a>
+          <a href="#diagnostico" class="btn-gold px-5 py-2.5 rounded-full font-bold tracking-wide text-xs shadow-md whitespace-nowrap">
+            Solicitar Diagnóstico
+          </a>
+        </div>
+      </div>
+
+      <!-- Menu Mobile Toggle -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <a href="#diagnostico" class="btn-gold px-4 py-2 rounded-full font-bold tracking-wide text-[11px] shadow-sm whitespace-nowrap">
+          Diagnóstico
+        </a>
+        <button id="menu-btn" type="button" aria-label="Abrir menu" class="text-white p-2">
+          <i data-lucide="menu" class="w-7 h-7 text-alis-gold"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-[#070e1c] z-[100] border-l border-white/10 p-6 flex flex-col justify-between lg:hidden transition-transform duration-300 translate-x-full" aria-hidden="true">
+    <div class="space-y-8">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="text-alis-gold font-bold text-sm tracking-wide">Menu</span>
+        <button id="close-menu-btn" type="button" aria-label="Fechar menu" class="text-white/70 hover:text-white">
+          <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-6 text-lg font-bold text-white" aria-label="Navegação mobile">
+        <a href="/" class="hover:text-alis-gold transition-colors">Início</a>
+        <a href="/sobre.html" class="hover:text-alis-gold transition-colors">Sobre a Alis</a>
+        <a href="/metodologia.html" class="hover:text-alis-gold transition-colors">Metodologia</a>
+        <a href="/planos.html" aria-current="page" class="text-alis-gold">Planos</a>
+        <a href="/vagas.html" class="text-alis-gold hover:underline flex items-center gap-2">
+          <i data-lucide="briefcase" class="w-5 h-5"></i> Vagas Abertas
+        </a>
+        <a href="/blog.html" class="hover:text-alis-gold transition-colors">Conteúdo</a>
+      </nav>
+    </div>
+
+    <div class="space-y-5 pt-6 border-t border-white/10">
+      <div class="flex items-center justify-around text-alis-gold">
+        <a href="https://wa.me/5531975061698" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+        </a>
+        <a href="https://www.instagram.com/soualisrh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@soualisrh" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/alisrh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+      <a href="/cliente.html" class="w-full py-3.5 rounded-full border border-alis-gold text-alis-gold font-bold tracking-wide text-xs text-center block">
+        Portal do Cliente
+      </a>
+      <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full font-bold tracking-wide text-xs shadow-md text-center block">
+        Solicitar Diagnóstico
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-grow w-full max-w-[88rem] mx-auto px-5 md:px-10 py-12 md:py-16 space-y-16">
+
+    <nav aria-label="Você está em">
+      <ol class="inline-flex items-center gap-2 text-sm font-medium text-alis-dark/60">
+        <li><a href="/" class="hover:text-alis-gold-deep transition-colors">Início</a></li>
+        <li aria-hidden="true"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></li>
+        <li class="text-alis-gold-deep font-bold" aria-current="page">Planos</li>
+      </ol>
+    </nav>
+
+    <!-- Introdução -->
+    <section class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-16 items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-alis-dark" style="text-wrap:balance">
+          Arquitetura de serviços desenhada para a maturidade da sua operação.
+        </h1>
+        <p class="mt-5 text-base md:text-lg leading-relaxed text-alis-dark/75 max-w-2xl">
+          Da busca ativa de executivos à gestão completa de RH e DP, cada formato foi pensado para destravar o crescimento sem engessar a operação.
+        </p>
+      </div>
+      <nav aria-label="Formatos de atendimento" class="bg-white border-2 border-alis-gold rounded-2xl p-6 md:p-7 shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-alis-gold-deep mb-2">Os quatro formatos</p>
+        <ul class="divide-y divide-alis-dark/10">
+          <li><a href="#grupo-rs" class="flex items-center justify-between gap-4 py-3.5 group"><span><span class="block font-extrabold text-alis-dark">Alis Hunting</span><span class="block text-sm text-alis-dark/65">Recrutamento e Seleção</span></span><i data-lucide="arrow-right" class="w-4 h-4 text-alis-gold shrink-0 group-hover:translate-x-1 transition-transform"></i></a></li>
+          <li><a href="#grupo-estrutura" class="flex items-center justify-between gap-4 py-3.5 group"><span><span class="block font-extrabold text-alis-dark">Alis Estrutura</span><span class="block text-sm text-alis-dark/65">Estruturação de processos de RH</span></span><i data-lucide="arrow-right" class="w-4 h-4 text-alis-gold shrink-0 group-hover:translate-x-1 transition-transform"></i></a></li>
+          <li><a href="#grupo-gestao" class="flex items-center justify-between gap-4 py-3.5 group"><span><span class="block font-extrabold text-alis-dark">Alis Contínua</span><span class="block text-sm text-alis-dark/65">Gestão Continuada de RH & DP</span></span><i data-lucide="arrow-right" class="w-4 h-4 text-alis-gold shrink-0 group-hover:translate-x-1 transition-transform"></i></a></li>
+          <li><a href="#grupo-outplacement" class="flex items-center justify-between gap-4 py-3.5 group"><span><span class="block font-extrabold text-alis-dark">Alis Outplacement</span><span class="block text-sm text-alis-dark/65">Transição de carreira</span></span><i data-lucide="arrow-right" class="w-4 h-4 text-alis-gold shrink-0 group-hover:translate-x-1 transition-transform"></i></a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- GRUPO 1: RECRUTAMENTO & SELEÇÃO (ALIS HUNTING) -->
+    <section aria-labelledby="grupo-rs">
+      <div class="border-b border-alis-dark/15 pb-3 mb-8">
+        <h2 id="grupo-rs" class="text-xl md:text-2xl font-extrabold text-alis-dark">Recrutamento & Seleção (Alis Hunting)</h2>
+        <p class="text-sm text-alis-dark/65 mt-1">Hunting ativo, avaliação psicológica e rigor técnico para contratar bem e rápido.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+
+        <!-- Pacote 1: Valor Único -->
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">Valor Único</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">R&amp;S Pontual e Executivo</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Contratação sob demanda para posições estratégicas ou especialistas que exigem hunting dedicado no mercado.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Briefing individual e alinhamento de perfil em até 24h</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Hunting ativo e mapeamento salarial</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Avaliação comportamental, mapeamento comportamental científico e Laudo Psicológico (CRP) para posições estratégicas e de liderança</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Shortlist qualificada entregue em até 10 dias úteis</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Garantia de reposição de 30 a 90 dias corridos</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> empresas que precisam preencher cargos de liderança ou especialidade técnica com forte alinhamento cultural.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar diagnóstico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Pacote 2: Por Volume -->
+        <article class="relative flex flex-col bg-white text-alis-dark border-2 border-alis-gold rounded-3xl p-7 shadow-lg md:-mt-3 md:mb-0">
+          <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-alis-gold text-white text-xs font-extrabold px-4 py-1 rounded-full whitespace-nowrap">Escala Acelerada</span>
+          <h3 class="text-xl font-extrabold pt-1">Por Volume</h3>
+          <p class="text-sm text-alis-gold font-bold mt-0.5">Lote de Vagas</p>
+          <p class="text-sm text-alis-dark/75 mt-3 leading-relaxed">Contratação em conjunto para expansão de equipes operacionais, vendas ou varejo com processo otimizado.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/90 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold shrink-0 mt-0.5"></i><span>Condição especial para lotes a partir de 3 vagas</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold shrink-0 mt-0.5"></i><span>Triagem padronizada e divulgação acelerada</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold shrink-0 mt-0.5"></i><span>Entrevistas focadas em competências operacionais</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold shrink-0 mt-0.5"></i><span>Entrega rápida de finalistas com acompanhamento em painel dedicado</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold shrink-0 mt-0.5"></i><span>Garantia de reposição de 30 a 90 dias corridos (de acordo com a senioridade da vaga)</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-white/10 rounded-xl px-4 py-3 text-xs leading-relaxed text-white/85 mb-4"><strong class="text-white">Ideal para:</strong> momentos de escala, expansão de times comerciais e contratações operacionais em lote.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar diagnóstico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- GRUPO 2: ESTRUTURAÇÃO ORGANIZACIONAL (ALIS ESTRUTURA) -->
+    <section aria-labelledby="grupo-estrutura">
+      <div class="border-b border-alis-dark/15 pb-3 mb-8">
+        <h2 id="grupo-estrutura" class="text-xl md:text-2xl font-extrabold text-alis-dark">Projetos Pontuais de Estruturação (Alis Estrutura)</h2>
+        <p class="text-sm text-alis-dark/65 mt-1">Projetos fechados para tirar a gestão de pessoas do improviso e montar processos que funcionam.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">Organização e Governança de RH</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">Projeto Sob Medida</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Estruturação pontual dos pilares organizacionais com entregáveis definidos e cronograma transparente.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Diagnóstico de Clima, Cultura e Matriz de Riscos Psicossociais</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Organograma, descrição detalhada de cargos e trilha de carreira</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Formalização de Políticas Internas de RH e Código de Conduta</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Implementação de Avaliação de Desempenho, Metas (OKRs) e KPIs</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Treinamento e capacitação prática de lideranças</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> empresas em fase de crescimento que precisam profissionalizar processos sem criar passivos.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar escopo especializado <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">Consultoria Recorrente & BP</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">Alis Contínua (Banco de Horas)</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Acompanhamento contínuo da liderança com um Business Partner dedicado para tomadas de decisão.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Franquia mensal de horas consultivas dedicadas à liderança, gestores e equipes do dia a dia</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Diagnósticos contínuos de retenção e controle de turnover</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Apoio na implementação das diretrizes da NR-1 e de clima</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Painel transparente de tarefas e projetos com reporte ativo</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> empresas que querem orientação estratégica contínua sem o custo de um gestor interno sênior.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar diagnóstico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- GRUPO 3: GESTÃO CONTINUADA DE RH & DP -->
+    <section aria-labelledby="grupo-gestao">
+      <div class="border-b border-alis-dark/15 pb-3 mb-8">
+        <h2 id="grupo-gestao" class="text-xl md:text-2xl font-extrabold text-alis-dark">Gestão Continuada de RH & DP</h2>
+        <p class="text-sm text-alis-dark/65 mt-1">Assumimos a rotina de pessoas e as obrigações trabalhistas, no todo ou em parte, para você tocar o negócio.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
+
+        <!-- DP Parcial -->
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">DP Parcial</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">Gestão de RH + Interface Contábil</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Assumimos a rotina de pessoas, onboarding e benefícios, fazendo a ponte com a contabilidade externa.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Onboarding, recepção e coleta/checagem de documentos admissionais</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Gestão e cotação de benefícios, atendimento ao colaborador</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Acompanhamento de Convenções Coletivas e Relações Sindicais</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Ponte Contábil: envio formatado para fechamento da folha pela contabilidade</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Início operacional rápido (em até 5 dias úteis)</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> empresas que já têm contabilidade externa para folha, mas precisam de um RH interno estruturado.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar diagnóstico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- DP Completo -->
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">DP Completo (BPO Integral)</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">Terceirização Total (RH + DP)</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Operado integralmente no sistema Alis com processamento completo de folha, rescisões e impostos.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Todos os serviços do DP Parcial incluídos</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Processamento integral de Folha de Pagamento, Férias e Rescisões no sistema Alis</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Emissão e conferência de impostos, guias trabalhistas e eSocial</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Gestão sindical e suporte completo em homologações</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Setup parametrizado de 15 a 30 dias com segurança jurídica</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> PMEs que buscam desonerar totalmente a operação interna da burocracia de DP e RH.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar diagnóstico <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- GRUPO 4: TRANSIÇÃO DE CARREIRA (ALIS OUTPLACEMENT) -->
+    <section aria-labelledby="grupo-outplacement">
+      <div class="border-b border-alis-dark/15 pb-3 mb-8">
+        <h2 id="grupo-outplacement" class="text-xl md:text-2xl font-extrabold text-alis-dark">Transição de Carreira (Alis Outplacement)</h2>
+        <p class="text-sm text-alis-dark/65 mt-1">Suporte especializado pós-desligamento, cobrado por headcount.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <article class="relative flex flex-col bg-white border-2 border-alis-gold rounded-3xl p-7 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-extrabold">Alis Outplacement</h3>
+          <p class="text-sm text-alis-gold-deep font-bold mt-0.5">Programa de Transição &amp; Outplacement Individual</p>
+          <p class="text-sm text-alis-dark/70 mt-3 leading-relaxed">Acompanhamento técnico e acolhimento individual dedicado exclusivamente ao profissional em transição, preservando a marca empregadora e o clima interno da sua empresa.</p>
+
+          <ul class="space-y-3 text-sm text-alis-dark/85 my-7">
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Reestruturação completa de currículo, posicionamento de mercado e perfil no LinkedIn</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Treinamento prático e simulação para entrevistas técnicas e comportamentais</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Orientação estratégica de carreira e direcionamento para networking ativo</span></li>
+            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-4 h-4 text-alis-gold-deep shrink-0 mt-0.5"></i><span>Apoio à preservação do clima interno e da marca empregadora após o desligamento</span></li>
+          </ul>
+
+          <div class="mt-auto pt-4">
+            <p class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs leading-relaxed text-alis-dark/80 mb-4"><strong class="text-alis-dark">Ideal para:</strong> empresas que prezam pela responsabilidade social, clima interno e fortalecimento do Employer Branding durante reestruturações.</p>
+            <a href="#diagnostico" class="btn-gold w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold">
+              Solicitar proposta por Headcount <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card de apoio: diagnóstico estratégico -->
+        <aside class="keep-center relative flex flex-col justify-center items-center bg-alis-dark text-white rounded-3xl p-7 md:p-10">
+          <h2 class="text-xl md:text-2xl font-extrabold leading-snug">Não sabe qual modelo faz sentido para a sua empresa?</h2>
+          <p class="mt-3 text-sm md:text-base text-white/75 leading-relaxed">Em uma conversa consultiva, entendemos o seu momento e indicamos o caminho certo, com clareza e transparência.</p>
+          <a href="#diagnostico" class="btn-gold on-dark mt-8 w-full sm:w-auto sm:self-center px-8 py-3.5 rounded-full font-bold text-sm text-center">Solicitar Diagnóstico Estratégico</a>
+        </aside>
+      </div>
+    </section>
+
+    <p class="text-sm text-alis-dark/65 w-full leading-relaxed">
+      Escopo e formato se ajustam à maturidade do negócio, à senioridade das posições e ao tamanho do time. A proposta final sai depois da reunião de alinhamento.
+    </p>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="border-t border-white/10 bg-[#070e1c] text-white/80 pt-16 pb-10 px-6 md:px-12">
+    <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+
+      <div class="space-y-4 max-w-sm shrink-0">
+        <a href="/" class="block" aria-label="Alis RH, página inicial">
+          <img id="site-logo-footer" src="/assets/img/logo-alis.png" alt="Alis RH" class="h-20 md:h-24 w-auto object-contain">
+        </a>
+        <p id="rodape-texto" class="text-white/60 text-base leading-relaxed">
+          Sua parceira estratégica em gestão de pessoas para organizar e escalar o seu negócio.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold text-alis-gold tracking-wide">Navegação</h4>
+        <ul class="space-y-2.5 text-base font-medium">
+          <li><a href="/" class="hover:text-alis-gold transition-colors">Início</a></li>
+          <li><a href="/sobre.html" class="hover:text-alis-gold transition-colors">Sobre a Alis</a></li>
+          <li><a href="/metodologia.html" class="hover:text-alis-gold transition-colors">Metodologia</a></li>
+          <li><a href="/planos.html" class="hover:text-alis-gold transition-colors">Planos</a></li>
+          <li><a href="/vagas.html" class="text-alis-gold hover:underline transition-colors font-bold">Vagas Abertas</a></li>
+          <li><a href="/blog.html" class="hover:text-alis-gold transition-colors">Conteúdo</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold text-alis-gold tracking-wide">Contato</h4>
+        <div class="space-y-2 text-base">
+          <p><a href="mailto:gabriela@alisrh.com.br" class="hover:text-alis-gold transition-colors">gabriela@alisrh.com.br</a></p>
+          <p><a href="https://wa.me/5531975061698" target="_blank" rel="noopener noreferrer" class="hover:text-alis-gold transition-colors">(31) 97506-1698 <span class="text-alis-gold font-semibold">(Gabriela)</span></a></p>
+        </div>
+      </div>
+
+      <div class="space-y-4 shrink-0">
+        <h4 class="text-sm font-bold text-alis-gold tracking-wide">Redes sociais</h4>
+        <div class="flex items-center gap-5">
+          <a href="https://wa.me/5531975061698" target="_blank" rel="noopener noreferrer" class="text-alis-gold hover:text-white transition-colors" aria-label="WhatsApp">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+          </a>
+          <a href="https://www.instagram.com/soualisrh/" target="_blank" rel="noopener noreferrer" class="text-alis-gold hover:text-white transition-colors" aria-label="Instagram">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@soualisrh" target="_blank" rel="noopener noreferrer" class="text-alis-gold hover:text-white transition-colors" aria-label="TikTok">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-2.83V7.55a6.34 6.34 0 0 0-3.47.95 6.34 6.34 0 1 0 9.81 5.34V8.65a8.3 8.3 0 0 0 4.77 1.49V6.69z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/alisrh" target="_blank" rel="noopener noreferrer" class="text-alis-gold hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© <script>document.write(new Date().getFullYear())</script> Alis RH. Todos os direitos reservados.</p>
+      <button type="button" data-open-modal="modal-privacidade" class="hover:text-alis-gold transition-colors underline underline-offset-4">Política de Privacidade</button>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a href="https://wa.me/5531975061698?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Alis%20RH." target="_blank" rel="noopener noreferrer" id="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
+    <svg class="w-6 h-6 md:w-7 md:h-7 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+    </svg>
+  </a>
+
+  <!-- MODAL: POLÍTICA DE PRIVACIDADE -->
+  <div id="modal-privacidade" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-privacidade-title">
+    <div class="absolute inset-0 bg-alis-dark/70 backdrop-blur-sm" data-close-modal></div>
+    <div class="modal-panel relative bg-white text-alis-dark w-full max-w-2xl max-h-[85vh] rounded-3xl shadow-2xl flex flex-col">
+      <div class="flex items-start justify-between gap-4 p-8 pb-4 border-b border-alis-dark/10">
+        <h2 id="modal-privacidade-title" class="text-2xl font-extrabold">Política de Privacidade</h2>
+        <button type="button" data-close-modal aria-label="Fechar" class="text-alis-dark/50 hover:text-alis-dark p-1 shrink-0">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div id="privacidade-conteudo" class="p-8 pt-6 overflow-y-auto space-y-5 text-sm leading-relaxed text-alis-dark/80">
+        <p>A Alis RH trata os dados pessoais de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+        <div>
+          <h3 class="font-extrabold text-alis-dark mb-1">Quais dados coletamos</h3>
+          <p>Nome, e-mail, telefone, empresa, cargo e a mensagem que você informa nos formulários do site.</p>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-alis-dark mb-1">Para que usamos</h3>
+          <p>Para responder ao seu contato, entender a sua necessidade e elaborar propostas personalizadas.</p>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-alis-dark mb-1">Com quem compartilhamos</h3>
+          <p>Apenas com as ferramentas necessárias para operar o atendimento. Não vendemos dados pessoais.</p>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-alis-dark mb-1">Contato</h3>
+          <p>Para dúvidas sobre privacidade, escreva para <a href="mailto:gabriela@alisrh.com.br" class="text-alis-gold-deep font-bold hover:underline">gabriela@alisrh.com.br</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FLUTUANTE DO FORMULÁRIO DE DIAGNÓSTICO -->
+  <div id="modal-diagnostico" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="relative bg-[#091427] border border-alis-gold/30 w-full max-w-3xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="flex items-center justify-between p-6 border-b border-white/10 shrink-0">
+        <div>
+          <h3 class="text-xl font-bold text-white uppercase tracking-wide">Solicite seu Diagnóstico</h3>
+          <p class="text-xs text-white/70">Atendimento direto com a fundadora Gabriela Rabelo.</p>
+        </div>
+        <button type="button" onclick="fecharModalDiagnostico()" class="text-white/70 hover:text-white p-2 rounded-full border border-white/10 hover:border-alis-gold transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Corpo do Modal com Scroll e Formulário -->
+      <div class="p-6 md:p-8 overflow-y-auto space-y-6">
+        
+        <!-- MENSAGEM DE SUCESSO ACOLHEDORA -->
+        <div id="success-msg-choice" style="display:none;" class="text-center py-8 md:py-12 bg-white/[0.02] border border-white/5 rounded-3xl p-6 md:p-8 shadow-xl">
+          <div class="bg-alis-gold/20 w-16 h-16 rounded-full border border-alis-gold flex items-center justify-center mx-auto mb-6 text-alis-gold"><i data-lucide="check" class="w-8 h-8"></i></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Recebemos suas informações!</h2>
+          <p class="text-white/80 text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed">Obrigado pelo interesse. A Gabriela Rabelo ou nossa equipe consultiva retornará o seu contato em breve para dar sequência ao seu atendimento.</p>
+          <div class="border-t border-white/10 pt-8 mt-4">
+            <p class="text-alis-gold font-bold uppercase tracking-widest text-xs mb-6">Prefere agendar diretamente sua conversa?</p>
+            <div class="flex justify-center">
+              <a href="https://meetings.hubspot.com/gabriela430" target="_blank" rel="noopener noreferrer" class="btn-gold font-bold px-8 py-4 rounded-full text-xs uppercase tracking-widest shadow-xl flex items-center gap-2">
+                Agendar reunião agora <i data-lucide="calendar" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div id="form-inner-container">
+          <form id="form-avaliacao" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <div class="flex flex-col">
+                <label for="nome" class="f-label">Nome completo *</label>
+                <input type="text" id="nome" autocomplete="name" maxlength="255" placeholder="Seu nome" class="input-alis-dark-form f-input">
+                <p class="erro-campo" data-erro="nome"></p>
+              </div>
+              <div class="flex flex-col">
+                <label for="email" class="f-label">E-mail corporativo *</label>
+                <input type="email" id="email" autocomplete="email" maxlength="255" placeholder="seu@email.com" class="input-alis-dark-form f-input">
+                <p class="erro-campo" data-erro="email"></p>
+              </div>
+              <div class="flex flex-col">
+                <label for="whatsapp" class="f-label">WhatsApp *</label>
+                <input type="tel" id="whatsapp" autocomplete="tel" maxlength="20" placeholder="(XX) XXXXX-XXXX" class="input-alis-dark-form f-input">
+                <p class="erro-campo" data-erro="whatsapp"></p>
+              </div>
+              <div class="flex flex-col">
+                <label for="cargo" class="f-label">Cargo *</label>
+                <select id="cargo" class="input-alis-dark-form f-input text-white" style="background-color: rgb(10, 19, 37);">
+                  <option value="" disabled selected>Seu cargo</option>
+                  <option value="Sócio / CEO">Sócio / CEO</option>
+                  <option value="Diretor(a)">Diretor(a)</option>
+                  <option value="Gerente / Gestor(a)">Gerente / Gestor(a)</option>
+                  <option value="BP / Profissional de RH">BP / Profissional de RH</option>
+                  <option value="Outros">Outros</option>
+                </select>
+                <p class="erro-campo" data-erro="cargo"></p>
+              </div>
+              <div class="flex flex-col">
+                <label for="empresa" class="f-label">Nome da Empresa *</label>
+                <input type="text" id="empresa" autocomplete="organization" maxlength="255" placeholder="Nome da empresa" class="input-alis-dark-form f-input">
+                <p class="erro-campo" data-erro="empresa"></p>
+              </div>
+              <div class="flex flex-col">
+                <label for="colaboradores" class="f-label">Quantidade de Colaboradores *</label>
+                <select id="colaboradores" class="input-alis-dark-form f-input text-white" style="background-color: rgb(10, 19, 37);">
+                  <option value="" disabled selected>Selecione a faixa</option>
+                  <option value="1 a 10">1 a 10 colaboradores</option>
+                  <option value="11 a 50">11 a 50 colaboradores</option>
+                  <option value="51 a 200">51 a 200 colaboradores</option>
+                  <option value="201 a 500">201 a 500 colaboradores</option>
+                  <option value="Mais de 500">Mais de 500 colaboradores</option>
+                </select>
+                <p class="erro-campo" data-erro="colaboradores"></p>
+              </div>
+            </div>
+
+            <div class="space-y-6 pt-8">
+              <p class="f-label text-center text-xs md:text-sm">Serviços de Interesse *</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/80">
+                <label class="f-check"><input type="checkbox" name="desafio" value="Recrutamento & Seleção (Alis Hunting)" class="custom-checkbox-form"> Recrutamento & Seleção (Alis Hunting)</label>
+                <label class="f-check"><input type="checkbox" name="desafio" value="Projetos de Estruturação e Consultoria (Alis Estrutura)" class="custom-checkbox-form"> Projetos de Estruturação e Consultoria (Alis Estrutura)</label>
+                <label class="f-check"><input type="checkbox" name="desafio" value="Gestão Continuada de RH & DP" class="custom-checkbox-form"> Gestão Continuada de RH & DP</label>
+                <label class="f-check"><input type="checkbox" name="desafio" value="Outplacement / Transição de Carreira" class="custom-checkbox-form"> Outplacement / Transição de Carreira</label>
+                <label class="f-check"><input type="checkbox" name="desafio" value="Diagnóstico Estratégico Geral" class="custom-checkbox-form"> Diagnóstico Estratégico Geral</label>
+                <label class="f-check"><input type="checkbox" name="desafio" value="Outros / Não sei qual preciso" class="custom-checkbox-form"> Outros / Não sei qual preciso</label>
+              </div>
+              <p class="erro-campo text-center" data-erro="desafios"></p>
+
+              <div class="pt-6">
+                <label for="mensagem" class="f-label">Deseja adiantar algum assunto?</label>
+                <textarea id="mensagem" maxlength="65535" placeholder="Escreva sua mensagem..." class="input-alis-dark-form f-input h-32 resize-none"></textarea>
+              </div>
+            </div>
+
+            <div class="pt-8">
+              <label class="f-check items-start text-white/70">
+                <input type="checkbox" id="aceite" class="custom-checkbox-form mt-0.5 shrink-0">
+                <span>Li e concordo com a <a href="#" onclick="openPrivacyModal(event)" class="text-alis-gold underline hover:text-alis-gold-light">Política de Privacidade</a> da Alis RH e autorizo o contato sobre a minha solicitação.</span>
+              </label>
+              <p class="erro-campo" data-erro="aceite"></p>
+            </div>
+
+            <input type="text" id="site-extra" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+
+            <div class="flex justify-center pt-8">
+              <button type="submit" id="enviar" class="btn-gold w-full sm:w-auto px-12 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-xl flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                Enviar solicitação <i data-lucide="send-horizontal" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p id="erro-envio" class="erro-campo text-center pt-4" hidden>Não foi possível enviar agora. Tente novamente ou fale com a Gabriela pelo <a href="https://wa.me/5531975061698" class="underline">WhatsApp</a>.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // MENU MOBILE
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+    // MODAL DE PRIVACIDADE E MODAL DE DIAGNÓSTICO
+    let activeModal = null;
+    let lastFocused = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      closeMobileMenu();
+      lastFocused = document.activeElement;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      activeModal = modal;
+      const closeBtn = modal.querySelector('button[data-close-modal]');
+      if (closeBtn) closeBtn.focus();
+    }
+    function closeModal() {
+      if (!activeModal) return;
+      activeModal.classList.add('hidden');
+      activeModal.classList.remove('flex');
+      document.body.style.overflow = '';
+      activeModal = null;
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function abrirModalDiagnostico(e) {
+      if (e) e.preventDefault();
+      closeMobileMenu();
+      const modal = document.getElementById('modal-diagnostico');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModalDiagnostico() {
+      const modal = document.getElementById('modal-diagnostico');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.dataset.openModal));
+    });
+    document.querySelectorAll('[data-close-modal]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { 
+        closeModal(); 
+        fecharModalDiagnostico();
+        return; 
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+
+      // Intercepta os botões de diagnóstico para abrir o modal sem sair da página
+      document.querySelectorAll('a[href="#diagnostico"], a[href*="#diagnostico"]').forEach(btn => {
+        btn.addEventListener('click', abrirModalDiagnostico);
+      });
+    });
+  </script>
+</body>
+</html>
