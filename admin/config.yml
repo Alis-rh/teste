@@ -32,7 +32,7 @@ collections:
           - { label: "Subtítulo (Hero)", name: "subtitulo_hero", widget: "text" }
           - { label: "Nome da Fundadora", name: "nome_fundadora", widget: "string", default: "Gabriela Rabelo" }
           - { label: "Cargo da Fundadora", name: "cargo_fundadora", widget: "string", default: "Fundadora e Consultora Principal" }
-          - { label: "Foto da Fundadora", name: "foto_fundadora", widget: "image", default: "/assets/img/gabriela-rabelo.jpg" }
+          - { label: "Foto da Fundadora", name: "foto_fundadora", widget: "image", default: "/assets/img/2.jpg" }
           - { label: "Biografia / Apresentação", name: "bio_fundadora", widget: "markdown" }
 
   # 3. ARTIGOS / METODOLOGIA (Para a publicação durante a semana)
