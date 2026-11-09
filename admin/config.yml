@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main # Altere para 'master' se a sua branch principal for master
+
+# Configurações de uploads de mídia
+media_folder: "assets/img" # Onde as imagens serão salvas no repositório
+public_folder: "/assets/img" # Caminho público usado no código HTML
+
+collections:
+  # 1. CONFIGURAÇÕES GERAIS (Logo e Rodapé)
+  - name: "configuracoes"
+    label: "Configurações Globais"
+    files:
+      - label: "Informações da Marca & Logo"
+        name: "site"
+        file: "content/site.yml"
+        fields:
+          - { label: "Logo da Alis RH", name: "logo", widget: "image", default: "/assets/img/logo-alis.png" }
+          - { label: "Altura da Logo no Header (px)", name: "altura_logo_header", widget: "number", default: 40, value_type: "int" }
+          - { label: "Altura da Logo no Rodapé (px)", name: "altura_logo_footer", widget: "number", default: 80, value_type: "int" }
+          - { label: "Descrição do Rodapé", name: "descricao", widget: "text", default: "Sua parceira estratégica em gestão de pessoas para organizar e escalar o seu negócio." }
+
+  # 2. PÁGINA SOBRE A ALIS (Sua foto e textos da fundadora)
+  - name: "paginas"
+    label: "Páginas do Site"
+    files:
+      - label: "Página Sobre a Alis"
+        name: "sobre"
+        file: "content/sobre.yml"
+        fields:
+          - { label: "Título Principal (Hero)", name: "titulo_hero", widget: "string" }
+          - { label: "Subtítulo (Hero)", name: "subtitulo_hero", widget: "text" }
+          - { label: "Nome da Fundadora", name: "nome_fundadora", widget: "string", default: "Gabriela Rabelo" }
+          - { label: "Cargo da Fundadora", name: "cargo_fundadora", widget: "string", default: "Fundadora e Consultora Principal" }
+          - { label: "Foto da Fundadora", name: "foto_fundadora", widget: "image", default: "/assets/img/gabriela-rabelo.jpg" }
+          - { label: "Biografia / Apresentação", name: "bio_fundadora", widget: "markdown" }
+
+  # 3. ARTIGOS / METODOLOGIA (Para a publicação durante a semana)
+  - name: "blog"
+    label: "Metodologia & Conteúdos"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título do Artigo", name: "title", widget: "string" }
+      - { label: "Data de Publicação", name: "date", widget: "datetime" }
+      - { label: "Categoria", name: "categoria", widget: "select", options: ["Metodologia", "Visão de Mercado", "Recrutamento & Seleção", "Estruturação & Clima", "Liderança & Cultura"] }
+      - { label: "Imagem de Capa", name: "thumbnail", widget: "image", required: false }
+      - { label: "Resumo", name: "summary", widget: "text" }
+      - { label: "Conteúdo do Artigo", name: "body", widget: "markdown" }
